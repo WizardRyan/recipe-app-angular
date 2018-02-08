@@ -3,14 +3,22 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { RecipesComponent } from './recipes/recipes.component';
+import { FormComponent } from './form/form.component';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    WelcomeComponent,
+    RecipesComponent,
+    FormComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
