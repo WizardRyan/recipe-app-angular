@@ -1,0 +1,14 @@
+mat-toolbar{
+  display: flex;
+  justify-content: space-around;
+}
+
+span {
+  margin: 20px;
+  padding: 20px;
+}
+
+input{
+  height: 25px;
+  width: 150px;
+}

@@ -1,9 +1,13 @@
 
 <mat-toolbar color="primary">
-  <span routerLink="/welcome">Home</span>
-  <span routerLink="/recipes">Recipes</span>
-  <span>Add</span>
-  <input type="text" placeholder="Search Recipes">
+  <div class="buttons">
+    <span routerLink="/welcome">Home</span>
+    <span routerLink="/recipes">Recipes</span>
+    <span>Add</span>
+  </div>
+  <div class="search">
+    <input type="text" placeholder="Search Recipes">
+  </div>
 </mat-toolbar>
 <router-outlet></router-outlet>
 
