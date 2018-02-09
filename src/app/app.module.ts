@@ -7,7 +7,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { FormComponent } from './form/form.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import {MatCardModule} from '@angular/material';
+import {MatCardModule, MatToolbarModule} from '@angular/material';
 import {CoreModule} from './core/core.module';
 
 
@@ -22,7 +22,8 @@ import {CoreModule} from './core/core.module';
     BrowserModule,
     FlexLayoutModule,
     CoreModule,
-    MatCardModule
+    MatCardModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
