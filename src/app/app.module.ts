@@ -22,10 +22,7 @@ import {CoreModule} from './core/core.module';
   imports: [
     BrowserModule,
     FlexLayoutModule,
-<<<<<<< HEAD
-=======
     CoreModule
->>>>>>> 9f97278f24204724171b0a2d8f2e585729e61e0d
   ],
   providers: [],
   bootstrap: [AppComponent]
