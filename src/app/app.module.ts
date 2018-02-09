@@ -17,12 +17,12 @@ import {CoreModule} from './core/core.module';
     WelcomeComponent,
     RecipesComponent,
     FormComponent,
-    MatCardModule
   ],
   imports: [
     BrowserModule,
     FlexLayoutModule,
-    CoreModule
+    CoreModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
