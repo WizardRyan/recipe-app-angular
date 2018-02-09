@@ -7,6 +7,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { FormComponent } from './form/form.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {MatCardModule} from '@angular/material';
+import {CoreModule} from './core/core.module';
 
 
 @NgModule({
@@ -14,11 +16,16 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     AppComponent,
     WelcomeComponent,
     RecipesComponent,
-    FormComponent
+    FormComponent,
+    MatCardModule
   ],
   imports: [
     BrowserModule,
     FlexLayoutModule,
+<<<<<<< HEAD
+=======
+    CoreModule
+>>>>>>> 9f97278f24204724171b0a2d8f2e585729e61e0d
   ],
   providers: [],
   bootstrap: [AppComponent]
