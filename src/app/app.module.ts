@@ -7,8 +7,14 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { FormComponent } from './form/form.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import {MatCardModule, MatToolbarModule} from '@angular/material';
+import {MatButtonModule, MatCardModule, MatToolbarModule} from '@angular/material';
 import {CoreModule} from './core/core.module';
+import {RouterModule, Routes} from '@angular/router';
+
+const appRoutes: Routes = [
+  { path: 'recipes', component: RecipesComponent},
+  { path: 'welcome', component: WelcomeComponent },
+];
 
 
 @NgModule({
@@ -23,7 +29,9 @@ import {CoreModule} from './core/core.module';
     FlexLayoutModule,
     CoreModule,
     MatCardModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatButtonModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
