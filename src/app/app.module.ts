@@ -10,6 +10,10 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatButtonModule, MatCardModule, MatToolbarModule} from '@angular/material';
 import {CoreModule} from './core/core.module';
 import {RouterModule, Routes} from '@angular/router';
+import {HttpClientModule} from '@angular/common/http';
+import {AuthService} from './services/auth.service';
+import {AngularFireModule} from 'angularfire2';
+import {environment} from '../environments/environment';
 
 const appRoutes: Routes = [
   { path: 'recipes', component: RecipesComponent},
@@ -31,6 +35,8 @@ const appRoutes: Routes = [
     MatCardModule,
     MatToolbarModule,
     MatButtonModule,
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
