@@ -5,5 +5,5 @@ export interface User {
   email: string;
   photoURL?: string;
   displayName?: string;
-  recipeData?: Recipe;
+  numOfRecipesPosted?: number;
 }
