@@ -1,0 +1,21 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.example-container > * {
+  width: 50%;
+}
+
+button{
+  height: 35px;
+  margin: auto;
+  display: block;
+
+}
+
+.example-full-width{
+  width: 100%;
+}
+
