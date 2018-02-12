@@ -18,6 +18,7 @@ import {environment} from '../environments/environment';
 const appRoutes: Routes = [
   { path: 'recipes', component: RecipesComponent},
   { path: 'welcome', component: WelcomeComponent },
+  {path: 'add', component: FormComponent}
 ];
 
 
