@@ -78,7 +78,8 @@ export class AuthService {
         photoURL: dat.photoURL,
         numOfRecipesPosted: count
       };
-      return userRef.set(data);
+      userRef.set(data);
+      sub.unsubscribe();
     });
   }
 

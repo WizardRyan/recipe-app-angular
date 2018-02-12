@@ -1,43 +1,36 @@
 .container {
-  position: relative;
-  text-align: center;
-
-}
-h1 {
-  color: white;
-  font-size: 55px;
-  position: absolute;
-  top: 40%;
-  left:50%;
-  transform: translate(-50%, -50%);
-
-}
-
-.banner {
-  position: absolute;
-  top: 40%;
-  left:50%;
-  transform: translate(-50%, -50%);
-  height:75px;
-
-}
-
-
-
-img{
-  height: auto;
-  width: auto;
-  max-width: 9000px;
-  max-height: 600px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../../assets/images/food1.png");
+  background-size: cover;
 }
 
 button{
   height: 35px;
   margin: auto;
   display: block;
-
 }
 
+mat-card{
+  height: 400px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
+mat-tab{
+  overflow-y: hidden;
+}
+
+mat-tab-body{
+  overflow-y: hidden;
+}
+
+.google-btn{
+  justify-self: flex-end;
+  align-self: flex-end;
+}

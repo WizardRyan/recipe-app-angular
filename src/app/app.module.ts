@@ -8,7 +8,7 @@ import { RecipesComponent } from './recipes/recipes.component';
 import { FormComponent } from './form/form.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {
-  MatButtonModule, MatCardModule, MatFormField, MatFormFieldModule, MatIconModule, MatInputModule, MatOptionModule,
+  MatButtonModule, MatCardModule, MatFormField, MatFormFieldModule, MatIconModule, MatInputModule, MatOptionModule, MatTabsModule,
   MatToolbarModule
 } from '@angular/material';
 import {CoreModule} from './core/core.module';
@@ -20,8 +20,8 @@ import {environment} from '../environments/environment';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 const appRoutes: Routes = [
-  { path: 'recipes', component: RecipesComponent},
   { path: 'welcome', component: WelcomeComponent },
+  { path: 'recipes', component: RecipesComponent},
   {path: 'add', component: FormComponent}
 ];
 
@@ -47,6 +47,7 @@ const appRoutes: Routes = [
     MatFormFieldModule,
     MatOptionModule,
     MatIconModule,
+    MatTabsModule,
     MatInputModule
   ],
   providers: [],
