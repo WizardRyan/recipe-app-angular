@@ -14,8 +14,8 @@
 
 
   <div class="inputButton">
-<mat-form-field>
-    <input matInput placeholder="Ingredients">
+<mat-form-field *ngFor="let ingredient of ingredients">
+    <input matInput placeholder="Ingredients" >
 </mat-form-field><mat-icon color="primary" (click)="addItem()">add_circle</mat-icon>
 </div>
 

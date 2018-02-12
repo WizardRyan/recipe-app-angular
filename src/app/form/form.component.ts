@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
-  ingredients = [];
+  ingredients = ["milk", "eggs"];
 
 
 
@@ -16,7 +16,8 @@ export class FormComponent implements OnInit {
   }
 
   addItem(){
-    this.ingredients.push()
+    this.ingredients.push("");
+    console.log('button clicked');
 
   }
 
