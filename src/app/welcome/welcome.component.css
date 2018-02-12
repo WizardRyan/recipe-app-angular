@@ -34,3 +34,7 @@ mat-tab-body{
   justify-self: flex-end;
   align-self: flex-end;
 }
+
+.input-container{
+  overflow-y: hidden;
+}
