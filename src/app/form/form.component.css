@@ -9,5 +9,9 @@
 }
 
 button{
-  align-items: center;
+  height: 35px;
+  margin: auto;
+  display: block;
+
 }
+
