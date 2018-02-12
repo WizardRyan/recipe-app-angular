@@ -7,7 +7,10 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { FormComponent } from './form/form.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import {MatButtonModule, MatCardModule, MatFormField, MatFormFieldModule, MatToolbarModule} from '@angular/material';
+import {
+  MatButtonModule, MatCardModule, MatFormField, MatFormFieldModule, MatOptionModule,
+  MatToolbarModule
+} from '@angular/material';
 import {CoreModule} from './core/core.module';
 import {RouterModule, Routes} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
@@ -39,7 +42,8 @@ const appRoutes: Routes = [
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     RouterModule.forRoot(appRoutes),
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatOptionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
