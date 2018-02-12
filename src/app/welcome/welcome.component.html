@@ -1,17 +1,40 @@
 
 <div class ="container">
-<div style="text-align:center">
-  <div class = "banner">
-  <h1>
-    Welcome to {{ pageTitle }}!
-  </h1>
-  </div>
-</div>
-<div class ="image">
-  <img src ='../assets/Images/food1.png'/>
+  <mat-card>
+    <mat-tab-group>
+      <mat-tab label="Sign up">
+        <div class="input-container" fxLayout="column">
+          <mat-form-field>
+            <input matInput placeholder="User Name">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="Email">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="Password">
+          </mat-form-field>
+          <button color="primary" mat-raised-button routerLink="/recipes" (click)="auth.emailSignIn()">Sign Up</button>
+        </div>
+      </mat-tab>
+
+      <mat-tab label="Login">
+        <div class="input-container" fxLayout="column">
+          <mat-form-field>
+            <input matInput placeholder="Email">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="Password">
+          </mat-form-field>
+          <button color="primary" mat-raised-button routerLink="/recipes" (click)="auth.emailSignIn()">Sign In</button>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+
+      <button class="google-btn" color="warn" mat-raised-button routerLink="/recipes" (click)="auth.googleLogin()">Sign in with Google</button>
+  </mat-card>
 </div>
 
 
-</div>
-
-<button mat-button routerLink="/recipes" (click)="auth.googleLogin()">Sign in</button>
