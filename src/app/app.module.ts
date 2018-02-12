@@ -8,7 +8,7 @@ import { RecipesComponent } from './recipes/recipes.component';
 import { FormComponent } from './form/form.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {
-  MatButtonModule, MatCardModule, MatFormField, MatFormFieldModule, MatOptionModule,
+  MatButtonModule, MatCardModule, MatFormField, MatFormFieldModule, MatIconModule, MatOptionModule,
   MatToolbarModule
 } from '@angular/material';
 import {CoreModule} from './core/core.module';
@@ -43,7 +43,8 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(environment.firebase),
     RouterModule.forRoot(appRoutes),
     MatFormFieldModule,
-    MatOptionModule
+    MatOptionModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
