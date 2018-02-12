@@ -17,6 +17,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {AuthService} from './services/auth.service';
 import {AngularFireModule} from 'angularfire2';
 import {environment} from '../environments/environment';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 const appRoutes: Routes = [
   { path: 'recipes', component: RecipesComponent},
@@ -34,6 +35,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FlexLayoutModule,
     CoreModule,
     MatCardModule,

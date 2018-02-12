@@ -29,6 +29,22 @@ export class AuthService {
     return this.oAuthLogin(provider);
   }
 
+  emailSignup(email, password, userName) {
+    this.fireAuth.auth.createUserWithEmailAndPassword(email, password)
+      .then(credential => {
+        this.updateUserData(credential, userName);
+      })
+      .catch(error => console.log(error.message));
+  }
+
+  emailSignIn(email, password) {
+    this.fireAuth.auth.signInWithEmailAndPassword(email, password)
+      .then(credential => {
+        console.log('user signed in successfully!');
+      })
+      .catch(error => console.log(error.message));
+  }
+
   private oAuthLogin(provider) {
     return this.fireAuth.auth.signInWithPopup(provider)
       .then(credential => {
@@ -37,24 +53,41 @@ export class AuthService {
       });
   }
 
-  private updateUserData(user) {
+  private updateUserData(user, userName?) {
+    console.log(user);
     const userRef: AngularFirestoreDocument<any> = this.fireStore.doc(`users/${user.uid}`);
     const data: User = {
       uid: user.uid,
       email: user.email,
-      displayName: user.displayName,
-      photoURL: user.photoURL
+      displayName: userName ? userName : user.displayName,
+      photoURL: user.photoURL,
+      numOfRecipesPosted: user.numOfRecipesPosted ? user.numOfRecipesPosted : 0
     };
     return userRef.set(data);
+  }
+
+  private incrementUserRecipeCount() {
+    const sub = this.user.subscribe(dat => {
+      const userRef: AngularFirestoreDocument<any> = this.fireStore.doc(`users/${dat.uid}`);
+      let count = dat.numOfRecipesPosted;
+      count = count ? count + 1 : 1;
+      const data = {
+        uid: dat.uid,
+        email: dat.email,
+        displayName: dat.displayName,
+        photoURL: dat.photoURL,
+        numOfRecipesPosted: count
+      };
+      return userRef.set(data);
+    });
   }
 
   addRecipe(recipe: Recipe) {
     this.fireStore.collection('recipes').add(recipe);
   }
 
-
   signOut() {
-    this.fireAuth.auth.signOut();
+    this.fireAuth.auth.signOut().then(() => console.log('user signed out')).catch((error) => console.log(error.message));
   }
 
 }
