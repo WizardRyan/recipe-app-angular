@@ -1,3 +1,29 @@
+.container {
+  position: relative;
+  text-align: center;
+
+}
+h1 {
+  color: white;
+  font-size: 55px;
+  position: absolute;
+  top: 40%;
+  left:50%;
+  transform: translate(-50%, -50%);
+
+}
+
+.banner {
+  position: absolute;
+  top: 40%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  height:75px;
+
+}
+
+
+
 img{
   height: auto;
   width: auto;
