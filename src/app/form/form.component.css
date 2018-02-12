@@ -11,3 +11,7 @@
 button{
   align-items: center;
 }
+
+.example-full-width{
+  width: 100%;
+}
