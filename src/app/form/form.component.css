@@ -15,8 +15,12 @@ button{
 
 }
 
-.example-full-width{
-  width: 100%;
+.inputButton{
+  display: inline;
+}
+
+.nameAuthor{
+  display: inline;
 }
 
 
