@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../services/auth.service';
 
 @Component({
@@ -8,7 +8,14 @@ import {AuthService} from '../services/auth.service';
 })
 export class WelcomeComponent implements OnInit {
   pageTitle = 'Your Recipes';
-  constructor(private auth: AuthService) { }
+  uEmail: string;
+  uPassword: string;
+  uName: string;
+  iEmail: string;
+  iPassword: string;
+
+  constructor(public auth: AuthService) {
+  }
 
   ngOnInit() {
     return;

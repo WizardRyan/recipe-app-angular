@@ -1,6 +1,6 @@
 mat-toolbar{
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 span {
@@ -11,4 +11,8 @@ span {
 input{
   height: 25px;
   width: 150px;
+}
+
+.end{
+  justify-self: flex-end;
 }

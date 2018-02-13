@@ -85,6 +85,7 @@ export class AuthService {
 
   addRecipe(recipe: Recipe) {
     this.fireStore.collection('recipes').add(recipe);
+    this.incrementUserRecipeCount();
   }
 
   signOut() {
