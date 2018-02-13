@@ -1,7 +1,22 @@
-.example-container {
+
+
+.background{
+  background-image: url("../../assets/images/food2.png") ;
+  background-size: cover;
+  width:100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+}
+
+.example-container {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
 }
 
 .example-container > * {
@@ -22,5 +37,14 @@ button{
 .nameAuthor{
   display: inline;
 }
+
+mat-card{
+  height: auto;
+  width: 600px;
+  display:flex;
+  flex-direction: column;
+
+}
+
 
 
