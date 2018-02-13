@@ -11,7 +11,7 @@
   </mat-form-field>
 
   <mat-form-field>
-    <input [(ngModel)]="recipeCreator" matInput placeholder="Author">
+    <input [(ngModel)]="authorName" matInput placeholder="Author">
   </mat-form-field>
 
 
@@ -36,5 +36,5 @@
 
 </div>
 
-<button mat-button onclick="pushRecipe()">Submit</button>
+<button mat-raised-button color="primary" (click)="pushRecipe()">Submit</button>
 

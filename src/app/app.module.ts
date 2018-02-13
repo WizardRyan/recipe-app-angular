@@ -21,9 +21,11 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
 
 const appRoutes: Routes = [
+  {path: '', redirectTo: 'welcome', pathMatch: 'full'},
   { path: 'welcome', component: WelcomeComponent },
   { path: 'recipes', component: RecipesComponent},
-  {path: 'add', component: FormComponent}
+  {path: 'add', component: FormComponent},
+  {path: '**', component: WelcomeComponent}
 ];
 
 

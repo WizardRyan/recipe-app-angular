@@ -4,10 +4,12 @@
     <span routerLink="/welcome">Home</span>
     <span routerLink="/recipes">Recipes</span>
     <span routerLink="/add">Add</span>
+
   </div>
-  <div class="search">
-    <input type="text" placeholder="Search Recipes">
-  </div>
+  <span class="end">
+    <span *ngIf="auth.user | async as user" (click)="auth.signOut()">Logout</span>
+  </span>
+
 </mat-toolbar>
 
 <router-outlet></router-outlet>
