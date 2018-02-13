@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import index from "@angular/cli/lib/cli";
 
 @Component({
   selector: 'app-form',
@@ -20,6 +21,11 @@ export class FormComponent implements OnInit {
     this.ingredients.push(this.currentNum);
     this.currentNum++;
 
+  }
+
+  removeItem (){
+    this.ingredients.pop();
+    this.currentNum -- ;
   }
 
 }
