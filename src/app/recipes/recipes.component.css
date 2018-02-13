@@ -1,0 +1,22 @@
+mat-grid-tile {
+  background-color: #658F41;
+}
+
+img {
+  width: 100%;
+}
+
+.recipe-card {
+  width: 300px;
+  margin: 5px;
+  color: white;
+  text-align: center;
+  text-decoration: underline;
+  background-color: #970300;
+}
+
+.recipe-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  object-fit: cover;
+}
