@@ -23,7 +23,7 @@
           <input [(ngModel)]="ingredientNames[ingredient]" matInput placeholder="Ingredients" >
       </mat-form-field>
         <mat-icon *ngIf="ingredient == currentNum - 1" color="primary" (click)="addItem()">add_circle</mat-icon>
-        <mat-icon *ngIf="ingredient == currentNum - 1" color="primary" (click)="removeItem(ingredient)">add_circle</mat-icon>
+        <mat-icon *ngIf="ingredient == currentNum - 1" color="primary" (click)="removeItem(ingredient)">remove_circle</mat-icon>
     </div>
   </div>
 </div>

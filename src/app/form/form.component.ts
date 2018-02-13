@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Recipe} from '../interfaces/recipe';
 import {AuthService} from '../services/auth.service';
+import index from "@angular/cli/lib/cli";
 
 @Component({
   selector: 'app-form',
@@ -48,4 +49,10 @@ export class FormComponent implements OnInit {
       this.authService.addRecipe(recipe);
     });
   }
+
+  removeItem (){
+    this.ingredients.pop();
+    this.currentNum -- ;
+  }
+
 }
