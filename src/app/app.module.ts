@@ -18,6 +18,7 @@ import {AuthService} from './services/auth.service';
 import {AngularFireModule} from 'angularfire2';
 import {environment} from '../environments/environment';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {FormsModule} from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
@@ -48,7 +49,8 @@ const appRoutes: Routes = [
     MatOptionModule,
     MatIconModule,
     MatTabsModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Recipe} from '../interfaces/recipe';
 import {AuthService} from '../services/auth.service';
-import index from "@angular/cli/lib/cli";
+import index from '@angular/cli/lib/cli';
 
 @Component({
   selector: 'app-form',
@@ -24,7 +24,7 @@ export class FormComponent implements OnInit {
   ngOnInit() {
     // fill ingredientNames with empty strings so index can be accessible without need to push
     for (let i = 0; i < 20; i++) {
-      this.ingredientNames.push("");
+      this.ingredientNames.push('');
     }
   }
 
@@ -50,9 +50,9 @@ export class FormComponent implements OnInit {
     });
   }
 
-  removeItem (){
+  removeItem() {
     this.ingredients.pop();
-    this.currentNum -- ;
+    this.currentNum--;
   }
 
 }
