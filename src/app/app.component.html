@@ -3,7 +3,7 @@
   <div class="buttons">
     <span routerLink="/welcome">Home</span>
     <span routerLink="/recipes">Recipes</span>
-    <span routerLink="/add">Add</span>
+    <span *ngIf="auth.user | async as user" routerLink="/add">Add</span>
 
   </div>
   <span class="end">
