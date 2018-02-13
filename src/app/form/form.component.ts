@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {Recipe} from '../interfaces/recipe';
+import {AuthService} from '../services/auth.service';
 
 @Component({
   selector: 'app-form',
@@ -7,13 +9,22 @@ import {Component, OnInit} from '@angular/core';
 })
 export class FormComponent implements OnInit {
   ingredients: number[] = [0];
-
   currentNum = 1;
+  recipeName: string;
+  authorName: string;
+  cookingDirections: string;
+  photoURL: string;
+  ingredientNames: string[] = [];
 
-  constructor() {
+  constructor(public authService: AuthService) {
+
   }
 
   ngOnInit() {
+    // fill ingredientNames with empty strings so index can be accessible without need to push
+    for (let i = 0; i < 20; i++) {
+      this.ingredientNames.push("");
+    }
   }
 
   addItem() {
@@ -22,4 +33,19 @@ export class FormComponent implements OnInit {
 
   }
 
+  pushRecipe() {
+    let poster;
+    this.authService.user.subscribe(data => {
+      poster = data.email;
+      const recipe: Recipe = {
+        recipeCreator: this.authorName,
+        recipeName: this.recipeName,
+        instructions: this.cookingDirections,
+        ingredients: this.ingredientNames,
+        photoURL: this.photoURL,
+        recipePoster: poster
+      };
+      this.authService.addRecipe(recipe);
+    });
+  }
 }

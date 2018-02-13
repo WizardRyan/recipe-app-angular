@@ -3,21 +3,24 @@
 <div class="example-container">
   <div class ="nameAuthor">
   <mat-form-field class="example-full-width">
-    <input matInput placeholder="Recipe Name">
+    <input [(ngModel)]="recipeName" matInput placeholder="Recipe Name">
   </mat-form-field>
 
+  <mat-form-field class="example-full-width">
+    <input [(ngModel)]="photoURL" matInput placeholder="Photo URL">
+  </mat-form-field>
 
-<mat-form-field>
-  <input matInput placeholder="Author">
-</mat-form-field>
-  </div>
+  <mat-form-field>
+    <input [(ngModel)]="recipeCreator" matInput placeholder="Author">
+  </mat-form-field>
+</div>
 
 
 <div class="inputButton">
   <div fxLayout="column" fxLayoutGap="10px">
     <div fxLayout="row" *ngFor="let ingredient of ingredients">
       <mat-form-field >
-          <input matInput placeholder="Ingredients" >
+          <input [(ngModel)]="ingredientNames[ingredient]" matInput placeholder="Ingredients" >
       </mat-form-field>
         <mat-icon *ngIf="ingredient == currentNum - 1" color="primary" (click)="addItem()">add_circle</mat-icon>
         <mat-icon *ngIf="ingredient == currentNum - 1" color="primary" (click)="removeItem(ingredient)">add_circle</mat-icon>
@@ -27,10 +30,10 @@
 
 
   <mat-form-field class = "directions">
-    <textarea matInput placeholder="Cooking Directions" matTextareaAutosize></textarea>
+    <textarea [(ngModel)]="cookingDirections" matInput placeholder="Cooking Directions" matTextareaAutosize></textarea>
   </mat-form-field>
 
 </div>
 
-<button mat-button>Submit</button>
+<button mat-button onclick="pushRecipe()">Submit</button>
 
