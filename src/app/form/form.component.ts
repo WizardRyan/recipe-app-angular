@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-form',
@@ -6,18 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
-  ingredients = [""];
+  ingredients: number[] = [0];
 
+  currentNum = 1;
 
-
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
-  addItem(){
-    this.ingredients.push("");
-    console.log('button clicked');
+  addItem() {
+    this.ingredients.push(this.currentNum);
+    this.currentNum++;
 
   }
 

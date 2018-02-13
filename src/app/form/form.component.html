@@ -13,10 +13,16 @@
   </div>
 
 
-  <div class="inputButton">
-<mat-form-field *ngFor="let ingredient of ingredients">
-    <input matInput placeholder="Ingredients" >
-</mat-form-field><mat-icon color="primary" (click)="addItem()">add_circle</mat-icon>
+<div class="inputButton">
+  <div fxLayout="column" fxLayoutGap="10px">
+    <div fxLayout="row" *ngFor="let ingredient of ingredients">
+      <mat-form-field >
+          <input matInput placeholder="Ingredients" >
+      </mat-form-field>
+        <mat-icon *ngIf="ingredient == currentNum - 1" color="primary" (click)="addItem()">add_circle</mat-icon>
+        <mat-icon *ngIf="ingredient == currentNum - 1" color="primary" (click)="removeItem(ingredient)">add_circle</mat-icon>
+    </div>
+  </div>
 </div>
 
 
@@ -28,3 +34,4 @@
 </div>
 
 <button mat-button>Submit</button>
+
