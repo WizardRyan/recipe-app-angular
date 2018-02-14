@@ -1,9 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Recipe} from '../interfaces/recipe';
 import {AuthService} from '../services/auth.service';
-import {SnackbarComponent} from "../snackbar/snackbar.component";
 import index from '@angular/cli/lib/cli';
-import {SnackbarSubmitComponent} from "../snackbar-submit/snackbar-submit.component";
+
 import {MatSnackBar} from "@angular/material";
 
 @Component({
@@ -59,13 +58,10 @@ export class FormComponent implements OnInit {
     this.currentNum--;
   }
 
-  openSnackBar(){
-    this.snackbar.openFromComponent(SnackbarSubmitComponent, {duration: 2000})
-  }
+
 
   submitted () {
-    this.pushRecipe();
-    this.openSnackBar();
+
   }
 
 

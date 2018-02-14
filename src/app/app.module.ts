@@ -21,8 +21,7 @@ import {environment} from '../environments/environment';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
 import { DetailsComponent } from './details/details.component';
-import { SnackbarComponent } from './snackbar/snackbar.component';
-import { SnackbarSubmitComponent } from './snackbar-submit/snackbar-submit.component';
+
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'welcome', pathMatch: 'full'},
@@ -40,8 +39,6 @@ const appRoutes: Routes = [
     RecipesComponent,
     FormComponent,
     DetailsComponent,
-    SnackbarComponent,
-    SnackbarSubmitComponent,
   ],
   imports: [
     BrowserModule,
