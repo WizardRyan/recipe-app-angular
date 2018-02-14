@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MatSnackBar} from "@angular/material";
+import {SnackbarSubmitComponent} from "../snackbar-submit/snackbar-submit.component";
 
 @Component({
   selector: 'app-snackbar',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SnackbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(public snackbar: MatSnackBar) { }
+
+  openSnackBar(){
+    this.snackbar.openFromComponent(SnackbarSubmitComponent, {duration: 2000})
+  }
 
   ngOnInit() {
+
   }
 
 }
