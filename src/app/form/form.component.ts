@@ -36,7 +36,7 @@ export class FormComponent implements OnInit {
 
   pushRecipe() {
     let poster;
-    this.authService.user.subscribe(data => {
+    const sub = this.authService.user.subscribe(data => {
       poster = data.email;
       const recipe: Recipe = {
         recipeCreator: this.authorName,
@@ -47,6 +47,7 @@ export class FormComponent implements OnInit {
         recipePoster: poster
       };
       this.authService.addRecipe(recipe);
+      sub.unsubscribe();
     });
   }
 
