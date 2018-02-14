@@ -1,6 +1,6 @@
 
 <div class ="container">
-  <mat-card *ngIf="!(auth.user | async)">
+  <mat-card *ngIf="!(auth.user | async)" class="authentication-card">
     <mat-tab-group>
       <mat-tab label="Sign up">
         <div class="input-container" fxLayout="column">
@@ -35,7 +35,7 @@
 
       <button class="google-btn" color="warn" mat-raised-button routerLink="/recipes" (click)="auth.googleLogin()">Sign in with Google</button>
   </mat-card>
-  <mat-card *ngIf="auth.user | async as user">
+  <mat-card *ngIf="auth.user | async as user" class="user-display-card">
     <mat-card-title>
       Hello {{user.displayName}}!
     </mat-card-title>

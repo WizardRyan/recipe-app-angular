@@ -7,7 +7,7 @@ img {
 }
 
 .recipe-card {
-  width: 300px;
+  max-width: 300px;
   margin: 5px;
   color: white;
   text-align: center;
@@ -20,4 +20,6 @@ img {
   display: flex;
   flex-wrap: wrap;
   object-fit: cover;
+  align-items: center;
+  justify-content: center;
 }

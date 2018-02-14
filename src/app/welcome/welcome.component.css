@@ -16,10 +16,7 @@ button{
 }
 
 mat-card{
-  height: 400px;
-  width: 600px;
-  display: flex;
-  flex-direction: column;
+
 }
 
 mat-tab{
@@ -37,4 +34,13 @@ mat-tab-body{
 
 .input-container{
   overflow-y: hidden;
+}
+.authentication-card{
+  height: 400px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+}
+.user-display-card{
+  padding: 50px;
 }

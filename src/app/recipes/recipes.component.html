@@ -1,32 +1,15 @@
-<router-outlet></router-outlet>
 
-<!--<mat-grid-list cols="3" rowHeight="2:1">-->
-  <!--<mat-grid-tile><img src="../../assets/Images/chicken.png"/></mat-grid-tile>-->
-  <!--<mat-grid-tile><img src="../../assets/Images/pasta.png"/></mat-grid-tile>-->
-  <!--<mat-grid-tile><img src="../../assets/Images/salmon.png"/></mat-grid-tile>-->
-<!--</mat-grid-list>-->
   <div class="recipe-card-container">
-    <mat-card class="recipe-card">
-      <mat-card-title>Fried Chicken</mat-card-title>
-      <mat-card-content>
-        <img src="../../assets/Images/chicken.png"/>
-      </mat-card-content>
-    </mat-card>
-
-    <mat-card class="recipe-card">
-      <mat-card-title>Pasta</mat-card-title>
-      <mat-card-content>
-        <img src="../../assets/Images/pasta.png"/>
-      </mat-card-content>
-    </mat-card>
-
-    <mat-card class="recipe-card">
-      <mat-card-title>Salmon</mat-card-title>
-      <mat-card-content>
-        <img src="../../assets/Images/salmon.png"/>
-      </mat-card-content>
-    </mat-card>
-
+    <div fxLayout="column" fxLayoutGap="30px">
+      <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="30px" *ngFor="let recipeObject of recipeObjects">
+        <mat-card *ngFor="let recipe of recipeObject" class="recipe-card">
+          <mat-card-title>
+            {{recipe.recipeName}}
+          </mat-card-title>
+          <img mat-card-image [src]="recipe.photoURL">
+        </mat-card>
+      </div>
+    </div>
   </div>
 
 
