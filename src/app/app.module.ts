@@ -20,6 +20,8 @@ import {AngularFireModule} from 'angularfire2';
 import {environment} from '../environments/environment';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
+import { DetailsComponent } from './details/details.component';
+import { SnackbarComponent } from './snackbar/snackbar.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'welcome', pathMatch: 'full'},
@@ -36,6 +38,8 @@ const appRoutes: Routes = [
     WelcomeComponent,
     RecipesComponent,
     FormComponent,
+    DetailsComponent,
+    SnackbarComponent,
   ],
   imports: [
     BrowserModule,
