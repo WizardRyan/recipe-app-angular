@@ -3,6 +3,8 @@ import {Recipe} from '../interfaces/recipe';
 import {AuthService} from '../services/auth.service';
 import index from '@angular/cli/lib/cli';
 
+import {MatSnackBar} from "@angular/material";
+
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -17,7 +19,7 @@ export class FormComponent implements OnInit {
   photoURL: string;
   ingredientNames: string[] = [];
 
-  constructor(public authService: AuthService) {
+  constructor(public authService: AuthService, public snackbar: MatSnackBar) {
 
   }
 
@@ -55,5 +57,12 @@ export class FormComponent implements OnInit {
     this.ingredients.pop();
     this.currentNum--;
   }
+
+
+
+  submitted () {
+
+  }
+
 
 }

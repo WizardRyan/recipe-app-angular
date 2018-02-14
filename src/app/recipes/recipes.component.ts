@@ -5,6 +5,7 @@ import {RecipeService} from '../services/recipe.service';
 import {Observable} from 'rxjs/Observable';
 import {Recipe} from '../interfaces/recipe';
 import * as _ from 'lodash';
+import {MatSnackBarModule} from '@angular/material';
 
 @Component({
   selector: 'app-recipes',

@@ -10,7 +10,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {
   MatButtonModule, MatCardModule, MatFormField, MatFormFieldModule, MatGridListModule, MatIconModule, MatInputModule,
   MatOptionModule, MatTabsModule,
-  MatToolbarModule
+  MatToolbarModule, MatSnackBarModule
 } from '@angular/material';
 import {CoreModule} from './core/core.module';
 import {RouterModule, Routes} from '@angular/router';
@@ -20,6 +20,8 @@ import {AngularFireModule} from 'angularfire2';
 import {environment} from '../environments/environment';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
+import { DetailsComponent } from './details/details.component';
+
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'welcome', pathMatch: 'full'},
@@ -36,6 +38,7 @@ const appRoutes: Routes = [
     WelcomeComponent,
     RecipesComponent,
     FormComponent,
+    DetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,8 @@ const appRoutes: Routes = [
     MatTabsModule,
     MatInputModule,
     FormsModule,
-    MatGridListModule
+    MatGridListModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
