@@ -10,7 +10,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {
   MatButtonModule, MatCardModule, MatFormField, MatFormFieldModule, MatGridListModule, MatIconModule, MatInputModule,
   MatOptionModule, MatTabsModule,
-  MatToolbarModule
+  MatToolbarModule, MatSnackBarModule
 } from '@angular/material';
 import {CoreModule} from './core/core.module';
 import {RouterModule, Routes} from '@angular/router';
@@ -54,7 +54,8 @@ const appRoutes: Routes = [
     MatTabsModule,
     MatInputModule,
     FormsModule,
-    MatGridListModule
+    MatGridListModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

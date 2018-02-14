@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MatGridList} from '@angular/material';
+import {MatSnackBarModule} from '@angular/material';
 
 @Component({
   selector: 'app-recipes',

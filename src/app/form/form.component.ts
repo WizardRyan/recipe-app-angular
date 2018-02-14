@@ -54,5 +54,10 @@ export class FormComponent implements OnInit {
     this.ingredients.pop();
     this.currentNum--;
   }
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000,
+    });
+  }
 
 }
