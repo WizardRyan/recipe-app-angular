@@ -2,7 +2,7 @@
   <div class="recipe-card-container">
     <div fxLayout="column" fxLayoutGap="30px">
       <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="30px" *ngFor="let recipeObject of recipeObjects">
-        <mat-card *ngFor="let recipe of recipeObject" class="recipe-card">
+        <mat-card *ngFor="let recipe of recipeObject" class="recipe-card" [routerLink]="['/details', recipe.id]">
           <mat-card-title>
             {{recipe.recipeName}}
           </mat-card-title>
@@ -11,7 +11,3 @@
       </div>
     </div>
   </div>
-
-
-
-<button routerLink="/details">View Recipe</button>

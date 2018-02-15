@@ -1,26 +1,38 @@
 
-<div class = "title">
-  Title
-</div>
+  <div class = "title">
+    <h2 class="mat-title">{{recipeData.recipeName}}</h2>
 
-<div class = "subtitle">
-  Author
-</div>
+  </div>
 
-  <mat-card class = "image">
-<div>
-  Image
-</div>
+  <div class = "subtitle">
+    <h3 class="mat-subheading-2">by {{recipeData.recipeCreator}}</h3>
+  </div>
 
+  <mat-divider></mat-divider>
 
-<div class = "ingredients">
-  Ingredients
-</div>
-  </mat-card>
+  <div class="image-list-container">
+    <div class="image-container">
+      <img [src]="recipeData.photoURL">
+    </div>
 
-<div class = "directions">
-  Directions
-</div>
+    <div class = "ingredients-container">
+      <div class="ingredients-title">
+        <h3 class="mat-subheading-1">Ingredients</h3>
+      </div>
+      <mat-divider class="ingredients-divider"></mat-divider>
+      <div class="ingredients-list">
+        <mat-list>
+          <mat-list-item *ngFor="let ingredient of recipeData.ingredients">
+            {{ingredient}}
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </div>
+  </div>
 
+  <mat-divider></mat-divider>
 
-<router-outlet></router-outlet>
+  <div class = "directions">
+    <p class="mat-body-1"> {{recipeData.instructions}} </p>
+  </div>
+
