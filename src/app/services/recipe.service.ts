@@ -18,4 +18,10 @@ export class RecipeService {
   getRecipe(id): Observable<Recipe> {
     return this.fireStore.collection<Recipe>('recipes').doc<Recipe>(`${id}`).valueChanges();
   }
+
+  forceUpdate(): void {
+    this.fireStore.collection('recipes').add({DELET: true}).then(docRef => {
+      this.fireStore.collection('recipes').doc(`${docRef.id}`).delete();
+    });
+  }
 }

@@ -22,8 +22,10 @@ export class RecipesComponent implements OnInit {
 
   ngOnInit() {
     this.recipeService.recipes.subscribe(data => {
-      this.recipeObjects = _.chunk(data, 3);
+      const temp = data.filter(val => val.recipeName);
+      this.recipeObjects = _.chunk(temp, 3);
     });
+    this.recipeService.forceUpdate();
   }
 
 }
