@@ -28,7 +28,9 @@ const appRoutes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
   { path: 'recipes', component: RecipesComponent},
   {path: 'add', component: FormComponent},
-  {path: '**', component: WelcomeComponent}
+  {path: 'details', component: DetailsComponent},
+  {path: '**', component: WelcomeComponent},
+
 ];
 
 

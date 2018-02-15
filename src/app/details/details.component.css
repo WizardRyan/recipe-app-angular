@@ -1,0 +1,27 @@
+.title {
+  background-color: lightgrey;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+
+}
+
+.subtitle {
+  background-color: lightblue;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+
+}
+
+.image {
+  display: flex;
+  justify-content: space-around;
+}
+
+.directions{
+  border-top: 2px solid black;
+  display: flex;
+  justify-content:center;
+
+}
