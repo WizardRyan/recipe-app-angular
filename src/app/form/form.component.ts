@@ -19,7 +19,8 @@ export class FormComponent implements OnInit {
   photoURL: string;
   ingredientNames: string[] = [];
 
-  constructor(public authService: AuthService, public snackbar: MatSnackBar) {
+
+  constructor(public authService: AuthService, public snackBar: MatSnackBar) {
 
   }
 
@@ -61,9 +62,24 @@ export class FormComponent implements OnInit {
   }
 
 
-  submitted() {
+
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000,
+    });
+  }
+
+
+  submitted(){
     this.pushRecipe();
+    this.openSnackBar("Recipe Submitted!!!", "Thank You");
   }
 
 
 }
+
+
+
+
+
