@@ -61,7 +61,7 @@ export class FormComponent implements OnInit {
 
 
   submitted () {
-
+    this.pushRecipe();
   }
 
 
