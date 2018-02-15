@@ -5,11 +5,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: url("../../assets/images/food1.png");
+  background-image: url("../../assets/images/food4.png");
   background-size: cover;
 }
 .title {
-  background-color: lightgrey;
   font-size: 20px;
   display: flex;
   justify-content: center;
@@ -17,21 +16,43 @@
 }
 
 .subtitle {
-  background-color: lightblue;
   font-size: 20px;
   display: flex;
   justify-content: center;
 
 }
 
-.image {
+.image-list-container{
+  padding: 20px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+
 }
 
 .directions{
-  border-top: 2px solid black;
   display: flex;
   justify-content:center;
+
+}
+
+.image-container{
+  width: 50%;
+}
+
+.ingredients-container{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.image-container img{
+  width: 100%;
+  border-radius: 6px;
+}
+
+.ingredients-divider{
+  width: 95%;
 
 }

@@ -3,7 +3,7 @@ import {Recipe} from '../interfaces/recipe';
 import {AuthService} from '../services/auth.service';
 import index from '@angular/cli/lib/cli';
 
-import {MatSnackBar} from "@angular/material";
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-form',
@@ -40,11 +40,13 @@ export class FormComponent implements OnInit {
     let poster;
     const sub = this.authService.user.subscribe(data => {
       poster = data.email;
+      const ingredients = this.ingredientNames.filter(ing => ing !== "");
+
       const recipe: Recipe = {
         recipeCreator: this.authorName,
         recipeName: this.recipeName,
         instructions: this.cookingDirections,
-        ingredients: this.ingredientNames,
+        ingredients,
         photoURL: this.photoURL,
         recipePoster: poster
       };
@@ -59,8 +61,7 @@ export class FormComponent implements OnInit {
   }
 
 
-
-  submitted () {
+  submitted() {
     this.pushRecipe();
   }
 

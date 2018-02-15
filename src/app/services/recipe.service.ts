@@ -13,11 +13,9 @@ export class RecipeService {
   constructor(private fireStore: AngularFirestore) {
     const recipesCollection = this.fireStore.collection<Recipe>('recipes');
     this.recipes = recipesCollection.valueChanges();
-    // const db = firebase.firestore();
-    // db.collection('recipes').get().then(dat => {
-    //   dat.forEach(doc => {
-    //     this.recipeConstant.push(doc.data());
-    //   });
-    // });
+  }
+
+  getRecipe(id): Observable<Recipe> {
+    return this.fireStore.collection<Recipe>('recipes').doc<Recipe>(`${id}`).valueChanges();
   }
 }
