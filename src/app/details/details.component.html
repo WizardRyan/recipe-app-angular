@@ -12,13 +12,11 @@
     </div>
     <mat-divider></mat-divider>
 
-    <mat-grid-list cols="2" rowHeight="2:1">
-    <mat-grid-tile><div class="image-container">
+    <div class ="image-ingredients-container">
+    <div class="image-container">
       <img [src]="recipeData.photoURL">
     </div>
-    </mat-grid-tile>
 
-      <mat-grid-tile>
     <div class = "ingredients-container">
       <div class="ingredients-title">
         <h3 class="mat-subheading-1">Ingredients</h3>
@@ -33,13 +31,13 @@
         </mat-list>
       </div>
     </div>
-      </mat-grid-tile>
-    </mat-grid-list>
-  <!--<mat-divider></mat-divider>-->
+    </div>
+
+  <mat-divider></mat-divider>
+  </div>
 
 
   <div class = "directions">
     <p class="mat-body-1"> {{recipeData.instructions}} </p>
   </div>
 </div>
-

@@ -5,6 +5,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
 }
 
 .main-wrapper{
@@ -29,10 +30,12 @@ img {
   margin: 5px;
   color: black;
   text-align: center;
-  text-decoration: underline;
+  /*text-decoration: underline;*/
   background-color:white;
-  font-family:  'Sacramento', cursive;
+  /*font-family:  'Sacramento', cursive;*/
   transition: all .3s ease;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
 }
 
 .recipe-card:hover{
@@ -55,6 +58,8 @@ img {
 
 .input-card{
   margin-top: 20px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
 }
 
 

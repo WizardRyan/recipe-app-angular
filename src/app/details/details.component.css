@@ -9,6 +9,11 @@
   background-image: url("../../assets/images/food3.png");
   background-size: cover;
 }
+.image-ingredients-container {
+  display: flex;
+  justify-content: space-around;
+
+      }
 
 .image-list-container{
   display: flex;
@@ -16,16 +21,24 @@
   align-items: center;
   justify-content: center;
   background-color: white;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
 
+}
+mat-grid-tile {
+  background-color: white;
+  background: rgba(255, 255, 255, 0.7);
 }
 
 
 .directions{
+  margin-top: 5px;
   background-color: white;
   display: flex;
   justify-content:center;
   background: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  padding: 5px;
 }
 
 .image-container{
@@ -36,6 +49,7 @@
   width: 50%;
   display: flex;
   align-items: center;
+  flex-direction: column;
 
 }
 
