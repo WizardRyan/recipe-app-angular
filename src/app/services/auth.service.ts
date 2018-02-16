@@ -84,10 +84,10 @@ export class AuthService {
   }
 
   addRecipe(recipe: Recipe) {
-    this.fireStore.collection('recipes').add(recipe).then(docRef => {
+    return this.fireStore.collection('recipes').add(recipe).then(docRef => {
       this.fireStore.collection('recipes').doc(`${docRef.id}`).update({id: docRef.id});
+      this.incrementUserRecipeCount();
     });
-    this.incrementUserRecipeCount();
   }
 
   signOut() {
