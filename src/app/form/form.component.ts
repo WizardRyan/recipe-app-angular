@@ -39,9 +39,11 @@ export class FormComponent implements OnInit {
 
   pushRecipe() {
     let poster;
+    let success = false;
+
     const sub = this.authService.user.subscribe(data => {
       poster = data.email;
-      const ingredients = this.ingredientNames.filter(ing => ing !== "");
+      const ingredients = this.ingredientNames.filter(ing => ing !== '');
 
       const recipe: Recipe = {
         recipeCreator: this.authorName,
@@ -51,8 +53,11 @@ export class FormComponent implements OnInit {
         photoURL: this.photoURL,
         recipePoster: poster
       };
-      this.authService.addRecipe(recipe);
-      sub.unsubscribe();
+      this.authService.addRecipe(recipe).then(() => {
+        success = true;
+        this.submitted(success);
+        sub.unsubscribe();
+      });
     });
   }
 
@@ -62,8 +67,6 @@ export class FormComponent implements OnInit {
   }
 
 
-
-
   openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, {
       duration: 2000,
@@ -71,9 +74,22 @@ export class FormComponent implements OnInit {
   }
 
 
-  submitted(){
-    this.pushRecipe();
-    this.openSnackBar("Recipe Submitted!!!", "Thank You");
+  submitted(success: boolean) {
+    if (success) {
+      this.openSnackBar('Successfully added recipe!', 'Thank You!');
+      this.recipeName = "";
+      this.authorName = "";
+      this.cookingDirections = "";
+      this.photoURL = "";
+      this.ingredientNames = [];
+      // fill ingredientNames with empty strings so index can be accessible without need to push
+      for (let i = 0; i < 20; i++) {
+        this.ingredientNames.push('');
+      }
+    }
+    else {
+      this.openSnackBar('Failed to add recipe', 'Try Again');
+    }
   }
 
 
