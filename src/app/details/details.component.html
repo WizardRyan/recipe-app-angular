@@ -1,16 +1,17 @@
 <div class="detais-card-container">
-  <div class = "title">
-    <h2 class="mat-title">{{recipeData.recipeName}}</h2>
 
-  </div>
-
-  <div class = "subtitle">
-    <h3 class="mat-subheading-2">by {{recipeData.recipeCreator}}</h3>
-  </div>
-
-  <mat-divider></mat-divider>
 
   <div class="image-list-container">
+    <div class = "title">
+      <h2 class="mat-title">{{recipeData.recipeName}}</h2>
+
+    </div>
+
+    <div class = "subtitle">
+      <h3 class="mat-subheading-2">by {{recipeData.recipeCreator}}</h3>
+    </div>
+    <mat-divider></mat-divider>
+
     <div class="image-container">
       <img [src]="recipeData.photoURL">
     </div>
