@@ -1,6 +1,5 @@
 
 .detais-card-container {
-  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;;
@@ -9,6 +8,11 @@
   background-image: url("../../assets/images/food3.png");
   background-size: cover;
 }
+.image-ingredients-container {
+  display: flex;
+  justify-content: space-around;
+
+      }
 
 .image-list-container{
   display: flex;
@@ -16,15 +20,20 @@
   align-items: center;
   justify-content: center;
   background-color: white;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
 
 }
 
-
 .directions{
+  margin-top: 5px;
   background-color: white;
   display: flex;
   justify-content:center;
-
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
+  padding: 5px;
+  width: 72.5%;
 }
 
 .image-container{
@@ -35,6 +44,7 @@
   width: 50%;
   display: flex;
   align-items: center;
+  flex-direction: column;
 
 }
 
@@ -44,6 +54,6 @@
 }
 
 .ingredients-divider{
-  width: 95%;
+  width: 80%;
 
 }
