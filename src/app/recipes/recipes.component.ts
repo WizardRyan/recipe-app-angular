@@ -14,7 +14,9 @@ import {MatSnackBarModule} from '@angular/material';
 })
 export class RecipesComponent implements OnInit {
 
+  // needs to be converted from 1d to 2d array, don't strongly type
   recipeObjects;
+  filterBy: string;
 
   constructor(public recipeService: RecipeService) {
 
@@ -22,6 +24,7 @@ export class RecipesComponent implements OnInit {
 
   ngOnInit() {
     this.recipeService.recipes.subscribe(data => {
+      // only add if recipe has a name
       const temp = data.filter(val => val.recipeName);
       this.recipeObjects = _.chunk(temp, 3);
     });
