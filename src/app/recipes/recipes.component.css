@@ -6,6 +6,7 @@
   align-items: center;
   justify-content: center;
 
+
 }
 
 .main-wrapper{
@@ -22,7 +23,8 @@ mat-grid-tile {
 }
 
 img {
-  width: 100%;
+  width: 85%;
+  height: 85%;
 }
 
 .recipe-card {
