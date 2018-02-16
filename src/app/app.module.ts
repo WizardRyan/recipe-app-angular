@@ -21,6 +21,7 @@ import {environment} from '../environments/environment';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
 import { DetailsComponent } from './details/details.component';
+import { FilterPipe } from './recipes/filter.pipe';
 
 
 const appRoutes: Routes = [
@@ -41,6 +42,7 @@ const appRoutes: Routes = [
     RecipesComponent,
     FormComponent,
     DetailsComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
