@@ -16,6 +16,7 @@
   align-items: center;
   justify-content: center;
   background-color: white;
+  background: rgba(255, 255, 255, 0.5);
 
 }
 
@@ -24,7 +25,7 @@
   background-color: white;
   display: flex;
   justify-content:center;
-
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .image-container{
