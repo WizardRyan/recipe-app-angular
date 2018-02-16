@@ -36,7 +36,7 @@ mat-grid-tile {
   background-color: white;
   display: flex;
   justify-content:center;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.7);
   border-radius: 5px;
   padding: 5px;
 }
