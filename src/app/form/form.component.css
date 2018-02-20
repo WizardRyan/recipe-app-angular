@@ -34,9 +34,6 @@ button{
 
 }
 
-.inputButton{
-  /* display: inline;*/
-}
 
 .nameAuthor{
   display: inline;
@@ -48,6 +45,14 @@ mat-card{
   display:flex;
   flex-direction: column;
 
+}
+
+.list-item-container{
+  display: flex;
+  max-width: 120px;
+  min-width: 120px;
+  align-items: center;
+  justify-content: space-between;
 }
 
 @media(max-width: 600px){

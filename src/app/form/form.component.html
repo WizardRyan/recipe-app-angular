@@ -41,12 +41,11 @@
       <div class="inputButton">
         <mat-list fxLayoutGap="10px">
           <mat-list-item *ngFor="let ingredient of ingredients; let i = index">
-            <div fxLayout ="row">
-            <ul>{{ingredient}}</ul>
-
-            <mat-icon color="primary" (click)="removeItem(i)">
-              remove_circle
-            </mat-icon>
+            <div class="list-item-container">
+              {{ingredient}}
+              <mat-icon color="primary" (click)="removeItem(i)">
+                remove_circle
+              </mat-icon>
             </div>
           </mat-list-item>
         </mat-list>
