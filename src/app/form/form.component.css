@@ -10,8 +10,12 @@
   align-items: center;
   justify-content: center;
 }
+ /*mat-icon {
+   display: flex;
+   justify-content: flex-end;
+ }*/
 
-.example-container {
+.example-container{
 
   display: flex;
   flex-direction: column;
