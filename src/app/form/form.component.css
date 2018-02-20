@@ -46,5 +46,10 @@ mat-card{
 
 }
 
+@media(max-width: 600px){
+  mat-card{
+    width: 100%;
+  }
+}
 
 

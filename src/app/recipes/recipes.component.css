@@ -20,14 +20,13 @@
   overflow-y: scroll;
   overflow-x: hidden;
 }
+
 mat-grid-tile {
   background-color: #658F41;
 }
 
-img {
-
-  width: 85%;
-  height: 85%;
+img:hover{
+  cursor: pointer;
 }
 
 .recipe-card {
@@ -41,6 +40,7 @@ img {
   transition: all .3s ease;
   background: rgba(255, 255, 255, 0.7);
   border-radius: 5px;
+  overflow: hidden;
 }
 
 .recipe-card:hover{
@@ -51,7 +51,6 @@ img {
   transform: scale(1.12);
 
   box-shadow: 0 6px 2px -4px rgba(0, 0, 0, .2);
-  cursor: pointer;
 }
 
 
@@ -61,6 +60,7 @@ img {
   object-fit: cover;
   align-items: center;
   justify-content: center;
+  margin-top: 20px;
 }
 
 .input-card{
@@ -70,5 +70,22 @@ img {
 }
 
 .card-row{
+ min-height: 350px;
+}
 
+mat-card-title{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.delete-button{
+  justify-self: flex-end;
+  align-self: flex-end;
+}
+
+@media(max-width:600px){
+  .recipe-card{
+    max-height: 78px;
+  }
 }

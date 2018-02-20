@@ -1,11 +1,14 @@
 mat-toolbar{
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 span {
-  margin: 20px;
-  padding: 20px;
+  margin: 10px;
+}
+
+span:hover{
+  cursor:pointer;
 }
 
 input{

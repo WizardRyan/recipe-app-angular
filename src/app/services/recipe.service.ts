@@ -24,4 +24,8 @@ export class RecipeService {
       this.fireStore.collection('recipes').doc(`${docRef.id}`).delete();
     });
   }
+
+  deleteRecipe(id) {
+    this.fireStore.collection('recipes').doc(`${id}`).delete();
+  }
 }

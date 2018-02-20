@@ -53,11 +53,23 @@ export class FormComponent implements OnInit {
         photoURL: this.photoURL,
         recipePoster: poster
       };
-      this.authService.addRecipe(recipe).then(() => {
-        success = true;
-        this.submitted(success);
-        sub.unsubscribe();
-      });
+
+      // verify users have entered all fields
+      if (this.checkIfNull(recipe)) {
+        this.submitted(false);
+      }
+
+      else {
+        this.authService.addRecipe(recipe).then(() => {
+          success = true;
+          this.submitted(success);
+          sub.unsubscribe();
+        }).catch(() => {
+            this.submitted(false);
+            sub.unsubscribe();
+          }
+        );
+      }
     });
   }
 
@@ -77,10 +89,10 @@ export class FormComponent implements OnInit {
   submitted(success: boolean) {
     if (success) {
       this.openSnackBar('Successfully added recipe!', 'Thank You!');
-      this.recipeName = "";
-      this.authorName = "";
-      this.cookingDirections = "";
-      this.photoURL = "";
+      this.recipeName = null;
+      this.authorName = null;
+      this.cookingDirections = null;
+      this.photoURL = null;
       this.ingredientNames = [];
       // fill ingredientNames with empty strings so index can be accessible without need to push
       for (let i = 0; i < 20; i++) {
@@ -92,6 +104,14 @@ export class FormComponent implements OnInit {
     }
   }
 
+  checkIfNull(obj): boolean {
+    for (let key in obj) {
+      if (!obj.key) {
+        return true;
+      }
+    }
+    return false;
+  }
 
 }
 

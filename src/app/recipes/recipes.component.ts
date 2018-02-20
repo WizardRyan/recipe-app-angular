@@ -31,4 +31,7 @@ export class RecipesComponent implements OnInit {
     this.recipeService.forceUpdate();
   }
 
+  deleteRecipe(id){
+    this.recipeService.deleteRecipe(id);
+  }
 }

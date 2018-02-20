@@ -5,6 +5,7 @@ import {AngularFireAuth} from 'angularfire2/auth';
 import {AngularFirestore, AngularFirestoreDocument} from 'angularfire2/firestore';
 import * as firebase from 'firebase/app';
 import {Recipe} from '../interfaces/recipe';
+import {reject} from 'q';
 
 @Injectable()
 export class AuthService {
@@ -84,14 +85,17 @@ export class AuthService {
   }
 
   addRecipe(recipe: Recipe) {
-    return this.fireStore.collection('recipes').add(recipe).then(docRef => {
-      this.fireStore.collection('recipes').doc(`${docRef.id}`).update({id: docRef.id});
-      this.incrementUserRecipeCount();
+    return new Promise((resolve, rej) => {
+        this.fireStore.collection('recipes').add(recipe).then(docRef => {
+        this.fireStore.collection('recipes').doc(`${docRef.id}`).update({id: docRef.id});
+        this.incrementUserRecipeCount();
+      }).then(() => resolve(true)).catch(() => rej(false));
     });
   }
 
   signOut() {
     this.fireAuth.auth.signOut().then(() => console.log('user signed out')).catch((error) => console.log(error.message));
   }
+
 
 }
