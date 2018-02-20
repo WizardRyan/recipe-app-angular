@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Recipe} from '../interfaces/recipe';
 import {AuthService} from '../services/auth.service';
-import index from '@angular/cli/lib/cli';
 
 import {MatSnackBar} from '@angular/material';
+import {FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -11,30 +11,35 @@ import {MatSnackBar} from '@angular/material';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
-  ingredients: number[] = [0];
+  ingredients: string[] = [];
   currentNum = 1;
   recipeName: string;
   authorName: string;
   cookingDirections: string;
   photoURL: string;
   ingredientNames: string[] = [];
-
+  recipe: "ngModel";
+  recipeNameCtrl: FormControl = new FormControl('', [Validators.required]);
+  photoURLCtrl:  FormControl = new FormControl('', [Validators.required]);
+  authorNameCtrl: FormControl = new FormControl('', [Validators.required]);
+  cookingDirectionsCtrl: FormControl = new FormControl('', [Validators.required]);
+  ingredientNameCtrl: FormControl = new FormControl('');
 
   constructor(public authService: AuthService, public snackBar: MatSnackBar) {
 
   }
 
   ngOnInit() {
-    // fill ingredientNames with empty strings so index can be accessible without need to push
-    for (let i = 0; i < 20; i++) {
-      this.ingredientNames.push('');
-    }
+    // // fill ingredientNames with empty strings so index can be accessible without need to push
+    // for (let i = 0; i < 20; i++) {
+    //   this.ingredientNames.push('');
+    // }
   }
 
   addItem() {
-    this.ingredients.push(this.currentNum);
-    this.currentNum++;
-
+    const ingredient = this.ingredientNameCtrl.value;
+    this.ingredientNameCtrl.setValue('');
+    this.ingredients.push(ingredient);
   }
 
   pushRecipe() {
@@ -73,9 +78,8 @@ export class FormComponent implements OnInit {
     });
   }
 
-  removeItem() {
-    this.ingredients.pop();
-    this.currentNum--;
+  removeItem(index: number) {
+    this.ingredients.splice(index, 1);
   }
 
 
@@ -98,8 +102,7 @@ export class FormComponent implements OnInit {
       for (let i = 0; i < 20; i++) {
         this.ingredientNames.push('');
       }
-    }
-    else {
+    } else {
       this.openSnackBar('Failed to add recipe', 'Try Again');
     }
   }
@@ -114,6 +117,7 @@ export class FormComponent implements OnInit {
   }
 
 }
+
 
 
 

@@ -19,7 +19,7 @@ import {AuthService} from './services/auth.service';
 import {AngularFireModule} from 'angularfire2';
 import {environment} from '../environments/environment';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { DetailsComponent } from './details/details.component';
 import { FilterPipe } from './recipes/filter.pipe';
 
@@ -61,6 +61,7 @@ const appRoutes: Routes = [
     MatTabsModule,
     MatInputModule,
     FormsModule,
+    ReactiveFormsModule,
     MatGridListModule,
     MatSnackBarModule,
     MatDividerModule,

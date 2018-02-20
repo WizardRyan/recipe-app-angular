@@ -1,44 +1,69 @@
+<div class="background">
+  <mat-card>
 
-<div class = "background">
-<mat-card>
+    <div class="example-container">
 
-<div class="example-container">
-
-  <mat-form-field>
-    <input [(ngModel)]="recipeName" matInput placeholder="Recipe Name">
-  </mat-form-field>
-
-  <mat-form-field>
-    <input [(ngModel)]="photoURL" matInput placeholder="Photo URL">
-  </mat-form-field>
-
-  <mat-form-field>
-    <input [(ngModel)]="authorName" matInput placeholder="Author">
-  </mat-form-field>
-
-
-
-<div class="inputButton">
-  <div fxLayout="column" fxLayoutGap="10px">
-    <div fxLayout="row" *ngFor="let ingredient of ingredients">
-      <mat-form-field >
-          <input [(ngModel)]="ingredientNames[ingredient]" matInput placeholder="Ingredients" >
+      <mat-form-field>
+        <input [(ngModel)]="recipeName" [formControl]="recipeNameCtrl" matInput placeholder="Recipe Name">
+        <mat-error *ngIf="recipeNameCtrl.hasError('required')">
+          Please enter a recipe name
+        </mat-error>
       </mat-form-field>
-        <mat-icon *ngIf="ingredient == currentNum - 1" color="primary" (click)="addItem()">add_circle</mat-icon>
-        <mat-icon *ngIf="ingredient == currentNum - 1" color="primary" (click)="removeItem(ingredient)">remove_circle</mat-icon>
+
+      <mat-form-field>
+        <input [(ngModel)]="photoURL" [formControl]="photoURLCtrl" matInput placeholder="Photo URL">
+        <mat-error *ngIf="photoURLCtrl.hasError('required')">
+          Please enter a recipe photo
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input [(ngModel)]="authorName" [formControl]="authorNameCtrl" matInput placeholder="Author">
+        <mat-error *ngIf="authorNameCtrl.hasError('required')">
+          Please enter a recipe Author
+        </mat-error>
+      </mat-form-field>
+
+      <div fxLayout="row">
+        <mat-form-field>
+          <input [formControl]="ingredientNameCtrl" matInput placeholder="Ingredient" (keyup.enter)="addItem()">
+
+          <mat-error *ngIf="ingredientNameCtrl.hasError('required') && ingredients.length == 0">
+            Please add at least one ingredient
+
+          </mat-error>
+        </mat-form-field>
+        <mat-icon color="primary" (click)="addItem()">add_circle</mat-icon>
+      </div>
+
+
+
+      <div class="inputButton">
+        <mat-list fxLayoutGap="10px">
+          <mat-list-item *ngFor="let ingredient of ingredients; let i = index">
+            <div fxLayout ="row">
+            <ul>{{ingredient}}</ul>
+
+            <mat-icon color="primary" (click)="removeItem(i)">
+              remove_circle
+            </mat-icon>
+            </div>
+          </mat-list-item>
+        </mat-list>
+      </div>
+
+      <mat-form-field>
+        <input [(ngModel)]="cookingDirections" [formControl]="cookingDirectionsCtrl" matInput
+               placeholder="Cooking Directions">
+        <mat-error *ngIf="cookingDirectionsCtrl.hasError('required')">
+          Please add cooking directions
+        </mat-error>
+      </mat-form-field>
+
+
     </div>
-  </div>
-</div>
 
-
-  <mat-form-field class = "directions">
-    <textarea [(ngModel)]="cookingDirections" matInput placeholder="Cooking Directions" matTextareaAutosize></textarea>
-  </mat-form-field>
-
-
-</div>
-
-<button mat-raised-button color="primary" (click)="pushRecipe()">Submit</button>
-</mat-card>
+    <button mat-raised-button color="primary" (click)="pushRecipe()">Submit</button>
+  </mat-card>
 </div>
 
