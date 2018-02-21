@@ -7,7 +7,6 @@ import {AuthService} from '../services/auth.service';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
-  pageTitle = 'Your Recipes';
   uEmail: string;
   uPassword: string;
   uName: string;

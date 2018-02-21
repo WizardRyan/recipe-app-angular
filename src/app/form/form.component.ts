@@ -11,12 +11,7 @@ import {FormControl, Validators} from '@angular/forms';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
-  ingredients: string[] = [];
-  currentNum = 1;
-  recipeName: string;
-  authorName: string;
-  cookingDirections: string;
-  photoURL: string;
+
   ingredientNames: string[] = [];
   recipe: "ngModel";
   recipeNameCtrl: FormControl = new FormControl('', [Validators.required]);

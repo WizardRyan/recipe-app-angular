@@ -8,7 +8,7 @@
     </div>
 
     <div class = "subtitle">
-      <h3 class="mat-subheading-2">by {{recipeData.recipeCreator}}</h3>
+      <h3 class="mat-subheading-2">Recipe by {{recipeData.recipeCreator}}, posted from {{recipeData.recipePoster}}</h3>
     </div>
     <mat-divider></mat-divider>
 
@@ -41,7 +41,7 @@
     <p class="mat-body-1"> {{recipeData.instructions}} </p>
   </div>
 
-  <button class="back-button" mat-raised-button routerLink="/recipes">Back</button>
+  <button class="back-button" mat-raised-button color="warn" routerLink="/recipes">Back</button>
 </div>
 
 

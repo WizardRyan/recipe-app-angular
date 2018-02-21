@@ -4,21 +4,21 @@
     <div class="example-container">
 
       <mat-form-field>
-        <input [(ngModel)]="recipeName" [formControl]="recipeNameCtrl" matInput placeholder="Recipe Name">
+        <input [formControl]="recipeNameCtrl" matInput placeholder="Recipe Name">
         <mat-error *ngIf="recipeNameCtrl.hasError('required')">
           Please enter a recipe name
         </mat-error>
       </mat-form-field>
 
       <mat-form-field>
-        <input [(ngModel)]="photoURL" [formControl]="photoURLCtrl" matInput placeholder="Photo URL">
+        <input [formControl]="photoURLCtrl" matInput placeholder="Photo URL">
         <mat-error *ngIf="photoURLCtrl.hasError('required')">
           Please enter a recipe photo
         </mat-error>
       </mat-form-field>
 
       <mat-form-field>
-        <input [(ngModel)]="authorName" [formControl]="authorNameCtrl" matInput placeholder="Author">
+        <input  [formControl]="authorNameCtrl" matInput placeholder="Author">
         <mat-error *ngIf="authorNameCtrl.hasError('required')">
           Please enter a recipe Author
         </mat-error>
@@ -52,7 +52,7 @@
       </div>
 
       <mat-form-field>
-        <input [(ngModel)]="cookingDirections" [formControl]="cookingDirectionsCtrl" matInput
+        <input [formControl]="cookingDirectionsCtrl" matInput
                placeholder="Cooking Directions">
         <mat-error *ngIf="cookingDirectionsCtrl.hasError('required')">
           Please add cooking directions
