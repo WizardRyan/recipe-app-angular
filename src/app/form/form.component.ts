@@ -39,12 +39,11 @@ export class FormComponent implements OnInit {
   addItem() {
     const ingredient = this.ingredientNameCtrl.value;
     this.ingredientNameCtrl.setValue('');
-    this.ingredients.push(ingredient);
+    this.ingredientNames.push(ingredient);
   }
 
   pushRecipe() {
     let poster;
-    let success = false;
 
     const sub = this.authService.user.subscribe(data => {
       poster = data.email;
@@ -60,26 +59,25 @@ export class FormComponent implements OnInit {
       };
 
       // verify users have entered all fields
-      if (this.checkIfNull(recipe)) {
-        this.submitted(false);
-      }
+      // if (this.checkIfNull(recipe)) {
+      //   this.submitted(false);
+      // }
 
-      else {
+     // else {
         this.authService.addRecipe(recipe).then(() => {
-          success = true;
-          this.submitted(success);
+          this.submitted(true);
           sub.unsubscribe();
         }).catch(() => {
             this.submitted(false);
             sub.unsubscribe();
           }
         );
-      }
+    //  }
     });
   }
 
   removeItem(index: number) {
-    this.ingredients.splice(index, 1);
+    this.ingredientNames.splice(index, 1);
   }
 
 
@@ -93,15 +91,15 @@ export class FormComponent implements OnInit {
   submitted(success: boolean) {
     if (success) {
       this.openSnackBar('Successfully added recipe!', 'Thank You!');
-      this.recipeName = null;
-      this.authorName = null;
-      this.cookingDirections = null;
-      this.photoURL = null;
+      this.recipeNameCtrl.reset();
+      this.authorNameCtrl.reset();
+      this.cookingDirectionsCtrl.reset();
+      this.photoURLCtrl.reset();
       this.ingredientNames = [];
       // fill ingredientNames with empty strings so index can be accessible without need to push
-      for (let i = 0; i < 20; i++) {
-        this.ingredientNames.push('');
-      }
+      // for (let i = 0; i < 20; i++) {
+      //   this.ingredientNames.push('');
+      // }
     } else {
       this.openSnackBar('Failed to add recipe', 'Try Again');
     }
@@ -110,6 +108,9 @@ export class FormComponent implements OnInit {
   checkIfNull(obj): boolean {
     for (let key in obj) {
       if (!obj.key) {
+        console.log(key);
+        console.log(obj.key);
+        console.log(obj);
         return true;
       }
     }

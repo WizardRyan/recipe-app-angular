@@ -40,7 +40,7 @@
 
       <div class="inputButton">
         <mat-list fxLayoutGap="10px">
-          <mat-list-item *ngFor="let ingredient of ingredients; let i = index">
+          <mat-list-item *ngFor="let ingredient of ingredientNames; let i = index">
             <div class="list-item-container">
               {{ingredient}}
               <mat-icon color="primary" (click)="removeItem(i)">
