@@ -17,6 +17,11 @@ export class RecipesComponent implements OnInit {
   // needs to be converted from 1d to 2d array, don't strongly type
   recipeObjects;
   filterBy: string;
+  showDiv: boolean = true;
+
+  toggleDiv() {
+    this.showDiv = this.showDiv? false : true;
+  }
 
   constructor(public recipeService: RecipeService) {
 
@@ -34,4 +39,5 @@ export class RecipesComponent implements OnInit {
   deleteRecipe(id){
     this.recipeService.deleteRecipe(id);
   }
+
 }
