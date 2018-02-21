@@ -30,10 +30,7 @@ export class FormComponent implements OnInit {
   }
 
   ngOnInit() {
-    // // fill ingredientNames with empty strings so index can be accessible without need to push
-    // for (let i = 0; i < 20; i++) {
-    //   this.ingredientNames.push('');
-    // }
+
   }
 
   addItem() {
@@ -50,20 +47,14 @@ export class FormComponent implements OnInit {
       const ingredients = this.ingredientNames.filter(ing => ing !== '');
 
       const recipe: Recipe = {
-        recipeCreator: this.authorName,
-        recipeName: this.recipeName,
-        instructions: this.cookingDirections,
+        recipeCreator: this.authorNameCtrl.value,
+        recipeName: this.recipeNameCtrl.value,
+        instructions: this.cookingDirectionsCtrl.value,
         ingredients,
-        photoURL: this.photoURL,
+        photoURL: this.photoURLCtrl.value,
         recipePoster: poster
       };
 
-      // verify users have entered all fields
-      // if (this.checkIfNull(recipe)) {
-      //   this.submitted(false);
-      // }
-
-     // else {
         this.authService.addRecipe(recipe).then(() => {
           this.submitted(true);
           sub.unsubscribe();
@@ -72,7 +63,6 @@ export class FormComponent implements OnInit {
             sub.unsubscribe();
           }
         );
-    //  }
     });
   }
 
@@ -96,27 +86,10 @@ export class FormComponent implements OnInit {
       this.cookingDirectionsCtrl.reset();
       this.photoURLCtrl.reset();
       this.ingredientNames = [];
-      // fill ingredientNames with empty strings so index can be accessible without need to push
-      // for (let i = 0; i < 20; i++) {
-      //   this.ingredientNames.push('');
-      // }
     } else {
       this.openSnackBar('Failed to add recipe', 'Try Again');
     }
   }
-
-  checkIfNull(obj): boolean {
-    for (let key in obj) {
-      if (!obj.key) {
-        console.log(key);
-        console.log(obj.key);
-        console.log(obj);
-        return true;
-      }
-    }
-    return false;
-  }
-
 }
 
 

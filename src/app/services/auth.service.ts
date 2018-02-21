@@ -86,10 +86,15 @@ export class AuthService {
 
   addRecipe(recipe: Recipe) {
     return new Promise((resolve, rej) => {
+      if (this.checkIfNullOrEmpty(recipe)) {
+        rej(false);
+      }
+      else{
         this.fireStore.collection('recipes').add(recipe).then(docRef => {
-        this.fireStore.collection('recipes').doc(`${docRef.id}`).update({id: docRef.id});
-        this.incrementUserRecipeCount();
-      }).then(() => resolve(true)).catch(() => rej(false));
+          this.fireStore.collection('recipes').doc(`${docRef.id}`).update({id: docRef.id});
+          this.incrementUserRecipeCount();
+        }).then(() => resolve(true)).catch(() => rej(false));
+      }
     });
   }
 
@@ -97,5 +102,14 @@ export class AuthService {
     this.fireAuth.auth.signOut().then(() => console.log('user signed out')).catch((error) => console.log(error.message));
   }
 
-
+  checkIfNullOrEmpty(obj): boolean {
+    for (let key in obj) {
+      if (!obj[key] || obj[key] === '') {
+        console.log(key);
+        console.log(obj);
+        return true;
+      }
+    }
+    return false;
+  }
 }
