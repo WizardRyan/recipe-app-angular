@@ -42,7 +42,7 @@ const appRoutes: Routes = [
     RecipesComponent,
     FormComponent,
     DetailsComponent,
-    FilterPipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
