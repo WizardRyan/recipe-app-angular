@@ -1,4 +1,4 @@
-<div class="detais-card-container">
+<div class="details-card-container">
 
 
   <div class="image-list-container">
@@ -13,29 +13,27 @@
     <mat-divider></mat-divider>
 
     <div class ="image-ingredients-container">
-    <div class="image-container">
-      <img [src]="recipeData.photoURL">
-    </div>
-
-    <div class = "ingredients-container">
-      <div class="ingredients-title">
-        <h3 class="mat-subheading-1">Ingredients</h3>
+      <div class="image-container">
+        <img [src]="recipeData.photoURL">
       </div>
 
-      <mat-divider class="ingredients-divider"></mat-divider>
-      <div class="ingredients-list">
-        <mat-list>
-          <mat-list-item *ngFor="let ingredient of recipeData.ingredients">
-            {{ingredient}}
-          </mat-list-item>
-        </mat-list>
+      <div class = "ingredients-container">
+        <div class="ingredients-title">
+          <h3 class="mat-subheading-1">Ingredients</h3>
+        </div>
+
+        <mat-divider class="ingredients-divider"></mat-divider>
+        <div class="ingredients-list">
+          <mat-list>
+            <mat-list-item *ngFor="let ingredient of recipeData.ingredients">
+              {{ingredient}}
+            </mat-list-item>
+          </mat-list>
+        </div>
       </div>
     </div>
-    </div>
 
-
-
-  <mat-divider></mat-divider>
+    <mat-divider></mat-divider>
   </div>
 
 

@@ -8,7 +8,6 @@ import {trigger, state, style, transition, animate, keyframes} from '@angular/an
   selector: 'app-details',
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.css'],
-  styles: [``],
   animations: [
     trigger('myAwesomeAnimation', [
 
