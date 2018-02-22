@@ -42,6 +42,13 @@
   </div>
 
   <button class="back-button" mat-raised-button color="primary" routerLink="/recipes">Back</button>
+
+  <mat-card>
+    <mat-form-field>
+      <input [(ngModel)]="commentContent" matInput placeholder="post a comment">
+    </mat-form-field>
+    <button mat-button color="primary">Post</button>
+  </mat-card>
 </div>
 
 

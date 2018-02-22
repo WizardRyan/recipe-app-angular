@@ -28,4 +28,19 @@ export class RecipeService {
   deleteRecipe(id) {
     return this.fireStore.collection('recipes').doc(`${id}`).delete();
   }
+
+  addComment(recipeId, poster, content) {
+    const commentRef = this.fireStore.collection('recipes').doc(`${recipeId}`).collection('comments');
+    commentRef.add({poster, content}).then(docRef => {
+      commentRef.doc(`${docRef.id}`).update({id: docRef.id});
+    });
+  }
+
+  deleteComment(recipeId, commentId) {
+    return this.fireStore.collection('recipes').doc(`${recipeId}`).collection('comments').doc(`${commentId}`).delete();
+  }
+
+  getComments(recipeId) {
+    this.fireStore.collection('recipes').doc(`${recipeId}`).collection('comments').valueChanges();
+  }
 }

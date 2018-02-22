@@ -21,7 +21,7 @@ export class RecipesComponent implements OnInit {
   showDiv = true;
 
   toggleDiv() {
-    this.showDiv = this.showDiv ? false : true;
+    this.showDiv = !this.showDiv;
   }
 
   constructor(public recipeService: RecipeService, public auth: AuthService) {

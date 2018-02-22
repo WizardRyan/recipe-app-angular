@@ -1,3 +1,5 @@
+import {RecipeComment} from './comment';
+
 export interface Recipe {
   recipeCreator: string;
   recipePoster: string;
