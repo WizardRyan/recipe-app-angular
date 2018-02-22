@@ -5,15 +5,24 @@
       <mat-tab label="Sign up">
         <div class="input-container" fxLayout="column">
           <mat-form-field>
-            <input matInput placeholder="User Name" [(ngModel)]="uName">
+            <input [(ngModel)]="uName" [formControl]="uNameCtrl" matInput placeholder="User Name" >
+            <mat-error *ngIf="uNameCtrl.hasError('required')">
+              Please enter a user name
+            </mat-error>
           </mat-form-field>
 
           <mat-form-field>
-            <input matInput placeholder="Email" [(ngModel)]="uEmail">
+            <input [(ngModel)]="uEmail" [formControl]="uEmailCtrl" matInput placeholder="Email" >
+            <mat-error *ngIf="uEmailCtrl.hasError('required')">
+              Please enter a valid email
+            </mat-error>
           </mat-form-field>
 
           <mat-form-field>
-            <input matInput placeholder="Password" [(ngModel)]="uPassword">
+            <input ng-hide="showpassword" type="password"[(ngModel)]="uPassword" [formControl]="uPasswordCtrl" matInput placeholder="Password" >
+            <mat-error *ngIf="uPasswordCtrl.hasError('required')">
+              Please enter a password
+            </mat-error>
           </mat-form-field>
           <button color="primary" mat-raised-button (click)="signUp()">Sign Up</button>
         </div>
@@ -21,12 +30,19 @@
 
       <mat-tab label="Login">
         <div class="input-container" fxLayout="column">
+
           <mat-form-field>
-            <input matInput placeholder="Email" [(ngModel)]="iEmail">
+            <input [(ngModel)]="iEmail" [formControl]="iEmailCtrl" matInput placeholder="Email" >
+            <mat-error *ngIf="iEmailCtrl.hasError('required')">
+              Please enter your email address
+            </mat-error>
           </mat-form-field>
 
           <mat-form-field>
-            <input matInput placeholder="Password" [(ngModel)]="iPassword">
+            <input ng-hide="showpassword" type="password" [(ngModel)]="iPassword" [formControl]="iPasswordCtrl" matInput placeholder="Password" >
+            <mat-error *ngIf="iPasswordCtrl.hasError('required')">
+              Please enter your password
+            </mat-error>
           </mat-form-field>
           <button color="primary" mat-raised-button (click)="signIn()">Sign In</button>
         </div>
