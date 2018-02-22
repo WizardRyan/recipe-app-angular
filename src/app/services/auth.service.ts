@@ -57,14 +57,17 @@ export class AuthService {
   private updateUserData(user, userName?) {
     console.log(user);
     const userRef: AngularFirestoreDocument<any> = this.fireStore.doc(`users/${user.uid}`);
-    const data: User = {
-      uid: user.uid,
-      email: user.email,
-      displayName: userName ? userName : user.displayName,
-      photoURL: user.photoURL,
-      numOfRecipesPosted: user.numOfRecipesPosted ? user.numOfRecipesPosted : 0
-    };
-    return userRef.set(data);
+    userRef.valueChanges().subscribe(dat => {
+      const data: User = {
+        uid: user.uid,
+        email: user.email,
+        displayName: userName ? userName : user.displayName,
+        photoURL: user.photoURL,
+        numOfRecipesPosted: dat.numOfRecipesPosted ? dat.numOfRecipesPosted : 0
+
+      };
+      return userRef.set(data);
+    });
   }
 
   private incrementUserRecipeCount() {
@@ -84,15 +87,17 @@ export class AuthService {
     });
   }
 
-  addRecipe(recipe: Recipe) {
+  addRecipe(recipe: Recipe, incrCounter: boolean) {
     return new Promise((resolve, rej) => {
       if (this.checkIfNullOrEmpty(recipe)) {
         rej(false);
       }
-      else{
+      else {
         this.fireStore.collection('recipes').add(recipe).then(docRef => {
           this.fireStore.collection('recipes').doc(`${docRef.id}`).update({id: docRef.id});
-          this.incrementUserRecipeCount();
+          if (incrCounter) {
+            this.incrementUserRecipeCount();
+          }
         }).then(() => resolve(true)).catch(() => rej(false));
       }
     });

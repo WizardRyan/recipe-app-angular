@@ -17,8 +17,9 @@ export class RecipesComponent implements OnInit {
   // needs to be converted from 1d to 2d array, don't strongly type
   recipeObjects;
   filterBy: string;
+  deletedRecipes: Recipe[] = [];
 
-  constructor(public recipeService: RecipeService) {
+  constructor(public recipeService: RecipeService, public auth: AuthService) {
 
   }
 
@@ -31,7 +32,18 @@ export class RecipesComponent implements OnInit {
     this.recipeService.forceUpdate();
   }
 
-  deleteRecipe(id){
-    this.recipeService.deleteRecipe(id);
+  deleteRecipe(id) {
+    const sub = this.recipeService.getRecipe(id).subscribe(recipe => {
+      if (recipe.recipeName) {
+        this.deletedRecipes.push(recipe);
+      }
+      this.recipeService.deleteRecipe(id).then(() => {
+        sub.unsubscribe();
+      });
+    });
+  }
+
+  undoDelete() {
+    this.auth.addRecipe(this.deletedRecipes.pop(), false);
   }
 }

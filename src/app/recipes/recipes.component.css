@@ -84,6 +84,12 @@ mat-card-title{
   align-self: flex-end;
 }
 
+.undo-button{
+  margin-top: 20px;
+  padding: 10px;
+
+}
+
 @media(max-width:600px){
   .recipe-card{
     max-height: 78px;

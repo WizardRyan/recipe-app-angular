@@ -15,7 +15,7 @@ export class FormComponent implements OnInit {
   ingredientNames: string[] = [];
   recipe: "ngModel";
   recipeNameCtrl: FormControl = new FormControl('', [Validators.required]);
-  photoURLCtrl:  FormControl = new FormControl('', [Validators.required]);
+  photoURLCtrl: FormControl = new FormControl('', [Validators.required]);
   authorNameCtrl: FormControl = new FormControl('', [Validators.required]);
   cookingDirectionsCtrl: FormControl = new FormControl('', [Validators.required]);
   ingredientNameCtrl: FormControl = new FormControl('');
@@ -50,14 +50,14 @@ export class FormComponent implements OnInit {
         recipePoster: poster
       };
 
-        this.authService.addRecipe(recipe).then(() => {
-          this.submitted(true);
+      this.authService.addRecipe(recipe, true).then(() => {
+        this.submitted(true);
+        sub.unsubscribe();
+      }).catch(() => {
+          this.submitted(false);
           sub.unsubscribe();
-        }).catch(() => {
-            this.submitted(false);
-            sub.unsubscribe();
-          }
-        );
+        }
+      );
     });
   }
 
@@ -86,9 +86,3 @@ export class FormComponent implements OnInit {
     }
   }
 }
-
-
-
-
-
-

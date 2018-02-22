@@ -26,6 +26,6 @@ export class RecipeService {
   }
 
   deleteRecipe(id) {
-    this.fireStore.collection('recipes').doc(`${id}`).delete();
+    return this.fireStore.collection('recipes').doc(`${id}`).delete();
   }
 }
