@@ -6,11 +6,33 @@ import {Observable} from 'rxjs/Observable';
 import {Recipe} from '../interfaces/recipe';
 import * as _ from 'lodash';
 import {MatSnackBarModule} from '@angular/material';
+import {trigger, state, style, transition, animate, keyframes, stagger, query} from '@angular/animations';
 
 @Component({
   selector: 'app-recipes',
   templateUrl: './recipes.component.html',
-  styleUrls: ['./recipes.component.css']
+  styleUrls: ['./recipes.component.css'],
+  animations: [
+    trigger('flyInOut', [
+
+      transition('* => *', [
+
+        query(':enter', style({opacity: 0}), {optional: true}),
+
+        query(':enter', stagger('300ms', [
+          animate('1s ease-in', keyframes([
+            style({opacity: 0, transform: 'translateY(-75px)', offset: 0}),
+            style({opacity: .5, transform: 'translateY(35px)', offset: 0.3}),
+            style({opacity: 1, transform: 'translateY(0)', offset: 1})
+          ]))
+
+
+        ]))
+
+      ])
+
+    ])
+  ]
 })
 export class RecipesComponent implements OnInit {
 
@@ -20,9 +42,7 @@ export class RecipesComponent implements OnInit {
   deletedRecipes: Recipe[] = [];
   showDiv = true;
 
-  toggleDiv() {
-    this.showDiv = this.showDiv ? false : true;
-  }
+
 
   constructor(public recipeService: RecipeService, public auth: AuthService) {
 

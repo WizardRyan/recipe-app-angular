@@ -8,11 +8,11 @@ import {trigger, state, style, transition, animate, keyframes} from '@angular/an
   selector: 'app-details',
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.css'],
-  animations: [
+  /*animations: [
     trigger('flyInOut', [transition('void => *', [style({transform:'translateX(-100%)'}), animate('1s')  ]),
     transition('* => void', [animate('1s', style({transform: 'translateX(100%)'}))])
     ])
-  ]
+  ]*/
 
 })
 export class DetailsComponent implements OnInit, OnDestroy {
