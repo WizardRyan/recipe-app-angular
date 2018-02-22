@@ -34,16 +34,17 @@ export class AuthService {
     this.fireAuth.auth.createUserWithEmailAndPassword(email, password)
       .then(credential => {
         this.updateUserData(credential, userName);
+        return 'user signed in successfully';
       })
-      .catch(error => console.log(error.message));
+      .catch(error => error.message);
   }
 
   emailSignIn(email, password) {
     this.fireAuth.auth.signInWithEmailAndPassword(email, password)
       .then(credential => {
-        console.log('user signed in successfully!');
+        return 'user signed in successfully';
       })
-      .catch(error => console.log(error.message));
+      .catch(error => error.message);
   }
 
   private oAuthLogin(provider) {

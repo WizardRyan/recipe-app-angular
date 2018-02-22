@@ -17,15 +17,12 @@ export class RecipesComponent implements OnInit {
   // needs to be converted from 1d to 2d array, don't strongly type
   recipeObjects;
   filterBy: string;
-<<<<<<< HEAD
   deletedRecipes: Recipe[] = [];
-=======
-  showDiv: boolean = true;
+  showDiv = true;
 
   toggleDiv() {
-    this.showDiv = this.showDiv? false : true;
+    this.showDiv = this.showDiv ? false : true;
   }
->>>>>>> b65b4013cc29bfd21b2a77505a925d80e90f98b2
 
   constructor(public recipeService: RecipeService, public auth: AuthService) {
 
