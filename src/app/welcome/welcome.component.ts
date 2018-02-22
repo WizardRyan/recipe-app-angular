@@ -23,19 +23,19 @@ export class WelcomeComponent implements OnInit {
 
   signUp() {
     this.auth.emailSignup(this.uEmail, this.uPassword, this.uName).then(message => {
-      this.snackBar.open(message);
+      this.snackBar.open('Account created successfully', '', {duration: 2000});
     })
       .catch(message => {
-        this.snackBar.open(message);
+        this.snackBar.open(message.message, '', {duration: 2000});
       });
   }
 
   signIn() {
     this.auth.emailSignIn(this.iEmail, this.iPassword).then(message => {
-      this.snackBar.open(message);
+      this.snackBar.open('Signed in successfully', '', {duration: 2000});
     })
       .catch(message => {
-        this.snackBar.open(message);
+        this.snackBar.open(message.message, '', {duration: 2000});
       });
   }
 

@@ -31,20 +31,11 @@ export class AuthService {
   }
 
   emailSignup(email, password, userName) {
-    this.fireAuth.auth.createUserWithEmailAndPassword(email, password)
-      .then(credential => {
-        this.updateUserData(credential, userName);
-        return 'user signed in successfully';
-      })
-      .catch(error => error.message);
+    return this.fireAuth.auth.createUserWithEmailAndPassword(email, password);
   }
 
   emailSignIn(email, password) {
-    this.fireAuth.auth.signInWithEmailAndPassword(email, password)
-      .then(credential => {
-        return 'user signed in successfully';
-      })
-      .catch(error => error.message);
+    return this.fireAuth.auth.signInWithEmailAndPassword(email, password);
   }
 
   private oAuthLogin(provider) {

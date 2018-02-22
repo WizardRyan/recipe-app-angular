@@ -15,7 +15,7 @@
           <mat-form-field>
             <input matInput placeholder="Password" [(ngModel)]="uPassword">
           </mat-form-field>
-          <button color="primary" mat-raised-button routerLink="/recipes" (click)="signUp()">Sign Up</button>
+          <button color="primary" mat-raised-button (click)="signUp()">Sign Up</button>
         </div>
       </mat-tab>
 
@@ -28,12 +28,12 @@
           <mat-form-field>
             <input matInput placeholder="Password" [(ngModel)]="iPassword">
           </mat-form-field>
-          <button color="primary" mat-raised-button routerLink="/recipes" (click)="signIn()">Sign In</button>
+          <button color="primary" mat-raised-button (click)="signIn()">Sign In</button>
         </div>
       </mat-tab>
     </mat-tab-group>
 
-      <button class="google-btn" color="warn" mat-raised-button routerLink="/recipes" (click)="auth.googleLogin()">Sign in with Google</button>
+      <button class="google-btn" color="warn" mat-raised-button (click)="auth.googleLogin()">Sign in with Google</button>
   </mat-card>
   <mat-card *ngIf="auth.user | async as user" class="user-display-card">
     <mat-card-title>
