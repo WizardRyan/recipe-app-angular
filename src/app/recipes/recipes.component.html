@@ -7,7 +7,7 @@
 
   <button *ngIf="deletedRecipes.length > 0" class="undo-button" mat-raised-button color="primary" (click)="undoDelete()">Undo</button>
 
-  <div class="recipe-card-container" *ngIf="showDiv">
+  <div class="recipe-card-container" [@flyInOut]="showDiv">
     <div fxLayout="column" fxLayoutGap="30px">
       <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="30px" class="card-row" *ngFor="let recipeObject of (recipeObjects | filter:filterBy)">
         <mat-card *ngFor="let recipe of recipeObject" class="recipe-card">
