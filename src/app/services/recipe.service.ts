@@ -41,6 +41,6 @@ export class RecipeService {
   }
 
   getComments(recipeId) {
-    this.fireStore.collection('recipes').doc(`${recipeId}`).collection('comments').valueChanges();
+    return this.fireStore.collection('recipes').doc(`${recipeId}`).collection('comments').valueChanges();
   }
 }

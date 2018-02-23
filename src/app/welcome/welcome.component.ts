@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../services/auth.service';
 import {MatSnackBar} from '@angular/material';
 import {FormControl, Validators} from '@angular/forms';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-welcome',
@@ -9,17 +10,11 @@ import {FormControl, Validators} from '@angular/forms';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
-  uEmail: string;
-  uPassword: string;
-  uName: string;
-  iEmail: string;
-  iPassword: string;
   uNameCtrl: FormControl = new FormControl('', [Validators.required]);
   uEmailCtrl: FormControl = new FormControl('', [Validators.required]);
   uPasswordCtrl: FormControl = new FormControl('', [Validators.required]);
   iEmailCtrl: FormControl = new FormControl('', [Validators.required]);
   iPasswordCtrl: FormControl = new FormControl ('', [Validators.required]);
-
 
 
   constructor(public auth: AuthService, public snackBar: MatSnackBar) {
@@ -30,8 +25,11 @@ export class WelcomeComponent implements OnInit {
   }
 
   signUp() {
-    this.auth.emailSignup(this.uEmail, this.uPassword, this.uName).then(message => {
+    this.auth.emailSignup(this.uEmailCtrl.value, this.uPasswordCtrl.value, this.uNameCtrl.value).then(message => {
       this.snackBar.open('Account created successfully', '', {duration: 2000});
+      this.uEmailCtrl.reset();
+      this.uPasswordCtrl.reset();
+      this.uNameCtrl.reset();
     })
       .catch(message => {
         this.snackBar.open(message.message, '', {duration: 2000});
@@ -39,8 +37,10 @@ export class WelcomeComponent implements OnInit {
   }
 
   signIn() {
-    this.auth.emailSignIn(this.iEmail, this.iPassword).then(message => {
+    this.auth.emailSignIn(this.iEmailCtrl.value, this.iPasswordCtrl.value).then(message => {
       this.snackBar.open('Signed in successfully', '', {duration: 2000});
+      console.log(firebase.auth().currentUser);
+
     })
       .catch(message => {
         this.snackBar.open(message.message, '', {duration: 2000});

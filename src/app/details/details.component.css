@@ -7,6 +7,7 @@
   justify-content: center;
   background-image: url("../../assets/images/food3.png");
   background-size: cover;
+  overflow: auto;
 }
 .image-ingredients-container {
   display: flex;
@@ -73,6 +74,9 @@ img{
 .back-button{
  /* background-color: lightcoral; */
   margin: 5px;
+}
+mat-card{
+  background: rgba(255, 255, 255, 0.9);
 }
 
 @media(max-width: 730px){

@@ -92,6 +92,6 @@ mat-card-title{
 
 @media(max-width:600px){
   .recipe-card{
-    max-height: 78px;
+    max-height: 100px;
   }
 }

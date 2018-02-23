@@ -4,6 +4,7 @@ import {Recipe} from '../interfaces/recipe';
 import {RecipeService} from '../services/recipe.service';
 import {trigger, state, style, transition, animate, keyframes} from '@angular/animations';
 import {RecipeComment} from '../interfaces/comment';
+import {AuthService} from '../services/auth.service';
 
 @Component({
   selector: 'app-details',
@@ -26,16 +27,19 @@ export class DetailsComponent implements OnInit, OnDestroy {
   recipeData: Recipe;
   private sub: any;
   commentContent: string;
-  comments: RecipeComment[] = [];
+  comments = [];
 
-  constructor(private route: ActivatedRoute, private recipeService: RecipeService) {
+  constructor(private route: ActivatedRoute, public recipeService: RecipeService, public auth: AuthService) {
   }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.recipeService.getRecipe(params['id']).subscribe(data => {
         this.recipeData = data;
-
+        this.recipeService.getComments(data.id).subscribe(dat => {
+          this.comments = dat;
+          console.log(this.comments);
+        });
       });
     });
   }
@@ -48,4 +52,5 @@ export class DetailsComponent implements OnInit, OnDestroy {
     this.recipeService.addComment(id, poster, this.commentContent);
     this.commentContent = '';
   }
+
 }

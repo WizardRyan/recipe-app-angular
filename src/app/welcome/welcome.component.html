@@ -19,7 +19,7 @@
           </mat-form-field>
 
           <mat-form-field>
-            <input ng-hide="showpassword" type="password"[(ngModel)]="uPassword" [formControl]="uPasswordCtrl" matInput placeholder="Password" >
+            <input ng-hide="showpassword" type="password" [(ngModel)]="uPassword" [formControl]="uPasswordCtrl" matInput placeholder="Password" >
             <mat-error *ngIf="uPasswordCtrl.hasError('required')">
               Please enter a password
             </mat-error>

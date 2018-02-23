@@ -27,15 +27,24 @@ export class AuthService {
 
   googleLogin() {
     const provider = new firebase.auth.GoogleAuthProvider();
+    const a = new firebase.auth.EmailAuthProvider();
     return this.oAuthLogin(provider);
   }
 
   emailSignup(email, password, userName) {
-    return this.fireAuth.auth.createUserWithEmailAndPassword(email, password);
+    const prom = this.fireAuth.auth.createUserWithEmailAndPassword(email, password);
+    prom.then(() => {
+      this.updateUserData(firebase.auth().currentUser, userName);
+    });
+    return prom;
   }
 
   emailSignIn(email, password) {
-    return this.fireAuth.auth.signInWithEmailAndPassword(email, password);
+    const prom = this.fireAuth.auth.signInWithEmailAndPassword(email, password);
+    prom.then(() => {
+      this.updateUserData(firebase.auth().currentUser);
+    });
+    return prom;
   }
 
   private oAuthLogin(provider) {
@@ -47,16 +56,16 @@ export class AuthService {
   }
 
   private updateUserData(user, userName?) {
-    console.log(user);
+
     const userRef: AngularFirestoreDocument<any> = this.fireStore.doc(`users/${user.uid}`);
     userRef.valueChanges().subscribe(dat => {
-      const data: User = {
+      let data: User = {
         uid: user.uid,
         email: user.email,
-        displayName: userName ? userName : user.displayName,
+        displayName: userName ? userName : dat.displayName,
         photoURL: user.photoURL,
-        numOfRecipesPosted: dat.numOfRecipesPosted ? dat.numOfRecipesPosted : 0
-
+        // heh, nuthin personell
+        numOfRecipesPosted: dat ? dat.numOfRecipesPosted ? dat.numOfRecipesPosted : 0 : 0
       };
       return userRef.set(data);
     });
