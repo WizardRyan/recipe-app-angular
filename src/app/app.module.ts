@@ -10,7 +10,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {
   MatButtonModule, MatCardModule, MatFormField, MatFormFieldModule, MatGridListModule, MatIconModule, MatInputModule,
   MatOptionModule, MatTabsModule,
-  MatToolbarModule, MatSnackBarModule, MatDividerModule, MatListModule
+  MatToolbarModule, MatSnackBarModule, MatDividerModule, MatListModule, MatTooltipModule
 } from '@angular/material';
 import {CoreModule} from './core/core.module';
 import {RouterModule, Routes} from '@angular/router';
@@ -66,6 +66,7 @@ const appRoutes: Routes = [
     MatSnackBarModule,
     MatDividerModule,
     MatListModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

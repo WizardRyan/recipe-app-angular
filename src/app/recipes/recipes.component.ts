@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {MatGridList} from '@angular/material';
+import {MatGridList, MatSnackBar} from '@angular/material';
 import {AuthService} from '../services/auth.service';
 import {RecipeService} from '../services/recipe.service';
 import {Observable} from 'rxjs/Observable';
@@ -42,7 +42,7 @@ export class RecipesComponent implements OnInit {
   deletedRecipes: Recipe[] = [];
   showDiv = true;
 
-  constructor(public recipeService: RecipeService, public auth: AuthService) {
+  constructor(public recipeService: RecipeService, public auth: AuthService, public snackBar: MatSnackBar) {
 
   }
 
@@ -51,6 +51,7 @@ export class RecipesComponent implements OnInit {
       // only add if recipe has a name
       const temp = data.filter(val => val.recipeName);
       this.recipeObjects = _.chunk(temp, 3);
+
     });
     this.recipeService.forceUpdate();
   }
@@ -70,4 +71,8 @@ export class RecipesComponent implements OnInit {
     this.auth.addRecipe(this.deletedRecipes.pop(), false);
   }
 
+  increaseFlag(id, e) {
+    this.recipeService.increaseRecipeFlag(id);
+      this.snackBar.open('The recipe has been flagged, Thanks for your feedback', '', {duration: 2000});
+  }
 }
