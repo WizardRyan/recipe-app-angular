@@ -16,16 +16,24 @@
             <span class="card-title-click" [routerLink]="['/details', recipe.id]">
               {{recipe.recipeName}}
             </span>
+
             <span class="icon-container" (click)="increaseFlag(recipe.id)">
               <mat-icon matTooltip="Flag as inappropriate">flag</mat-icon>
             </span>
             <ng-container *ngIf="auth.user | async as user">
-              <button *ngIf="user.email === recipe.recipePoster || recipe.flagRating > 1"
-                      class="delete-button" mat-raised-button color="warn" (click)="deleteRecipe(recipe.id, $event)">Delete</button>
+              <mat-icon *ngIf="user.email === recipe.recipePoster || recipe.flagRating > 1"
+                        class="delete-button"
+                        (click)="deleteRecipe(recipe.id, $event)" matTooltip="Delete this recipe">delete</mat-icon>
             </ng-container>
+
           </mat-card-title>
           <img mat-card-image [src]="recipe.photoURL" [routerLink]="['/details', recipe.id]">
+          <mat-card-footer>
+            <p [routerLink]="['/details', recipe.id]">{{recipe.instructions}}</p>
+          </mat-card-footer>
+
         </mat-card>
+
       </div>
     </div>
   </div>
