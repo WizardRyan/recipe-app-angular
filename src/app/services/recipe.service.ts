@@ -46,8 +46,8 @@ export class RecipeService {
 
   increaseRecipeFlag(id) {
     this.getRecipe(id).subscribe(data => {
-     const count = data.flagRating ? data.flagRating++ : 1;
-     return this.fireStore.collection('recipes').doc(`${id}`).update({flagRating: count});
+     let count = data.flagRating ? data.flagRating++ : 1;
+       this.fireStore.collection('recipes').doc(`${id}`).update({flagRating: count});
     });
   }
 }

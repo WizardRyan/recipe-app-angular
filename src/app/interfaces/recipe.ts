@@ -9,4 +9,5 @@ export interface Recipe {
   photoURL: string;
   id?: string;
   flagRating?: number;
+  showFlag?: boolean;
 }
