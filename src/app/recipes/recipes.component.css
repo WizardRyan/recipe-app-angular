@@ -25,6 +25,24 @@ mat-grid-tile {
   background-color: #658F41;
 }
 
+img{
+  max-width: 300px;
+  margin: 5px;
+  color: black;
+  text-align: center;
+  /*text-decoration: underline;*/
+  background-color:white;
+  /*font-family:  'Sacramento', cursive;*/
+  transition: all .3s ease;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
+  overflow: hidden;
+  height: auto;
+  align-items: center;
+
+
+}
+
 img:hover{
   cursor: pointer;
 }
@@ -89,9 +107,16 @@ mat-card-title{
   padding: 10px;
 
 }
+mat-card-footer{
+  margin-top: 25px;
+  margin-right: 5px;
+  margin-left: 5px;
+
+
+}
 
 @media(max-width:600px){
   .recipe-card{
-    max-height: 100px;
+    max-height: 600px;
   }
 }
