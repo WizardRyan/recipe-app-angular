@@ -29,9 +29,9 @@ export class RecipeService {
     return this.fireStore.collection('recipes').doc(`${id}`).delete();
   }
 
-  addComment(recipeId, poster, content) {
+  addComment(recipeId, poster, posterEmail, content) {
     const commentRef = this.fireStore.collection('recipes').doc(`${recipeId}`).collection('comments');
-    commentRef.add({poster, content}).then(docRef => {
+    commentRef.add({poster, posterEmail, content}).then(docRef => {
       commentRef.doc(`${docRef.id}`).update({id: docRef.id});
     });
   }
@@ -42,5 +42,12 @@ export class RecipeService {
 
   getComments(recipeId) {
     return this.fireStore.collection('recipes').doc(`${recipeId}`).collection('comments').valueChanges();
+  }
+
+  increaseRecipeFlag(id) {
+    this.getRecipe(id).subscribe(data => {
+     const count = data.flagRating ? data.flagRating++ : 1;
+     return this.fireStore.collection('recipes').doc(`${id}`).update({flagRating: count});
+    });
   }
 }
