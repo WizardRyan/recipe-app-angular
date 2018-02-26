@@ -29,7 +29,7 @@
           </mat-card-title>
           <img mat-card-image [src]="recipe.photoURL" [routerLink]="['/details', recipe.id]">
           <mat-card-footer>
-            <p [routerLink]="['/details', recipe.id]">{{recipe.instructions}}</p>
+            <p [routerLink]="['/details', recipe.id]">{{recipe.description}}</p>
           </mat-card-footer>
 
         </mat-card>

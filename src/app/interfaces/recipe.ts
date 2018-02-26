@@ -7,6 +7,7 @@ export interface Recipe {
   ingredients: string[];
   instructions: string;
   photoURL: string;
+  description?: string;
   id?: string;
   flagRating?: number;
   showFlag?: boolean;

@@ -48,7 +48,8 @@ export class FormComponent implements OnInit {
         instructions: this.cookingDirectionsCtrl.value,
         ingredients,
         photoURL: this.photoURLCtrl.value,
-        recipePoster: poster
+        recipePoster: poster,
+        description: this.detailsCtrl.value
       };
 
       this.authService.addRecipe(recipe, true).then(() => {
@@ -81,6 +82,7 @@ export class FormComponent implements OnInit {
       this.authorNameCtrl.reset();
       this.cookingDirectionsCtrl.reset();
       this.photoURLCtrl.reset();
+      this.detailsCtrl.reset();
       this.ingredientNames = [];
     } else {
       this.openSnackBar('Failed to add recipe', 'Try Again');

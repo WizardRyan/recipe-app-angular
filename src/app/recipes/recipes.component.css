@@ -147,3 +147,7 @@ mat-card-footer{
 .delete-button:hover{
   cursor: pointer;
 }
+
+p{
+  text-overflow: ellipsis;
+}
