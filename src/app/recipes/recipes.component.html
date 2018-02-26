@@ -16,7 +16,8 @@
             <span class="card-title-click" [routerLink]="['/details', recipe.id]">
               {{recipe.recipeName}}
             </span>
-            <button class="delete-button" mat-raised-button color="warn" (click)="deleteRecipe(recipe.id)">Delete</button>
+            <mat-icon (click)="deleteRecipe(recipe.id)">delete</mat-icon>
+            <!--<button class="delete-button" mat-raised-button color="warn" (click)="deleteRecipe(recipe.id)">Delete</button>-->
           </mat-card-title>
           <img mat-card-image [src]="recipe.photoURL" [routerLink]="['/details', recipe.id]">
           <mat-card-footer>
