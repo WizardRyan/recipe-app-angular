@@ -59,6 +59,13 @@
         </mat-error>
       </mat-form-field>
 
+      <mat-form-field>
+        <input [formControl]="detailsCtrl" matInput
+               placeholder="Details">
+        <mat-error *ngIf="detailsCtrl.hasError('required')">
+          Please add recipe details
+        </mat-error>
+      </mat-form-field>
 
     </div>
 

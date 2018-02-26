@@ -19,6 +19,7 @@ export class FormComponent implements OnInit {
   authorNameCtrl: FormControl = new FormControl('', [Validators.required]);
   cookingDirectionsCtrl: FormControl = new FormControl('', [Validators.required]);
   ingredientNameCtrl: FormControl = new FormControl('');
+  detailsCtrl: FormControl = new FormControl('', [Validators.required]);
 
   constructor(public authService: AuthService, public snackBar: MatSnackBar) {
 
