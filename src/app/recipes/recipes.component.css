@@ -105,8 +105,12 @@ mat-card-title{
 .undo-button{
   margin-top: 20px;
   padding: 10px;
-
 }
+
+.card-title-click{
+  transition: all .3s ease;
+}
+<<<<<<< HEAD
 mat-card-footer{
   margin-top: 25px;
   margin-right: 5px;
@@ -114,6 +118,17 @@ mat-card-footer{
 
 
 }
+=======
+.card-title-click:hover{
+  cursor: pointer;
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+>>>>>>> 446208af945ffd095e40b626c2c18eab40678b83
 
 @media(max-width:600px){
   .recipe-card{

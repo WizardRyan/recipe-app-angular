@@ -8,4 +8,5 @@ export interface Recipe {
   instructions: string;
   photoURL: string;
   id?: string;
+  flagRating?: number;
 }

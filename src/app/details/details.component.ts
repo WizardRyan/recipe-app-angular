@@ -48,8 +48,8 @@ export class DetailsComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
-  postComment(id, poster) {
-    this.recipeService.addComment(id, poster, this.commentContent);
+  postComment(id, poster, posterEmail) {
+    this.recipeService.addComment(id, poster, posterEmail, this.commentContent);
     this.commentContent = '';
   }
 
