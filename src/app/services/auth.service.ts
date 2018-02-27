@@ -65,7 +65,8 @@ export class AuthService {
         displayName: userName ? userName : dat.displayName,
         photoURL: user.photoURL,
         // heh, nuthin personell
-        numOfRecipesPosted: dat ? dat.numOfRecipesPosted ? dat.numOfRecipesPosted : 0 : 0
+        numOfRecipesPosted: dat ? dat.numOfRecipesPosted ? dat.numOfRecipesPosted : 0 : 0,
+        recipesFlagged: dat ? dat.recipesFlagged ? dat.recipesFlagged : [] : []
       };
       return userRef.set(data);
     });
