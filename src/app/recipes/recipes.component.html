@@ -18,11 +18,11 @@
             </span>
 
             <span class="icons-container">
-              <span class="icon-container" (click)="increaseFlag(recipe.id)">
+              <span *ngIf="auth.user | async as user" class="icon-container" (click)="increaseFlag(recipe.id)">
                 <mat-icon matTooltip="Flag as inappropriate">flag</mat-icon>
               </span>
               <ng-container *ngIf="auth.user | async as user">
-                <mat-icon *ngIf="user.email === recipe.recipePoster || recipe.flagRating > 1"
+                <mat-icon *ngIf="user.email === recipe.recipePoster || (recipe.flagRating > 1 && recipe.flagRating)"
                           class="delete-button"
                           (click)="deleteRecipe(recipe.id, $event)" matTooltip="Delete this recipe">delete</mat-icon>
               </ng-container>

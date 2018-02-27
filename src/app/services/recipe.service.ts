@@ -3,6 +3,7 @@ import {AngularFirestore} from 'angularfire2/firestore';
 import {Observable} from 'rxjs/Observable';
 import {Recipe} from '../interfaces/recipe';
 import * as firebase from 'firebase/app';
+import {AuthService} from './auth.service';
 
 @Injectable()
 export class RecipeService {
@@ -10,7 +11,7 @@ export class RecipeService {
   recipes: Observable<Recipe[]>;
   recipeConstant: Recipe[];
 
-  constructor(private fireStore: AngularFirestore) {
+  constructor(private fireStore: AngularFirestore, private auth: AuthService) {
     const recipesCollection = this.fireStore.collection<Recipe>('recipes');
     this.recipes = recipesCollection.valueChanges();
   }
@@ -46,9 +47,22 @@ export class RecipeService {
 
   increaseRecipeFlag(id) {
     const sub = this.getRecipe(id).subscribe(data => {
-     const count = data.flagRating ? data.flagRating + 1 : 1;
-       this.fireStore.collection('recipes').doc(`${id}`).update({flagRating: count});
-       sub.unsubscribe();
+      const subU = this.auth.user.subscribe(user => {
+        let recipesFlagged: string[] = [];
+        if (user.recipesFlagged) {
+          recipesFlagged = user.recipesFlagged;
+          recipesFlagged.push(data.id);
+        }
+        else {
+          recipesFlagged.push(data.id);
+        }
+        this.fireStore.doc(`users/${user.uid}`).update({recipesFlagged});
+        const count = data.flagRating ? data.flagRating + 1 : 1;
+        this.fireStore.collection('recipes').doc(`${id}`).update({flagRating: count});
+        subU.unsubscribe();
+      });
+        sub.unsubscribe();
     });
   }
+
 }
