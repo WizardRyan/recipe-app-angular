@@ -136,9 +136,12 @@ mat-card-footer{
 
 @media(max-width:600px){
   .recipe-card{
-    max-height: 600px;
+    min-height: 300px;
+    max-height: 300px;
   }
+
 }
+
 
 .delete-button {
   color: #E53935;
