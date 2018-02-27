@@ -24,20 +24,19 @@ mat-grid-tile {
 }
 
 img{
-  max-width: 300px;
-  margin: 5px;
-  color: black;
-  text-align: center;
-  /*text-decoration: underline;*/
-  background-color:white;
-  /*font-family:  'Sacramento', cursive;*/
-  transition: all .3s ease;
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: 5px;
-  overflow: hidden;
-  height: auto;
-  align-items: center;
-
+  /*max-width: 300px;*/
+  /*!* margin: 5px; *!*/
+  /*color: black;*/
+  /*text-align: center;*/
+  /*!*text-decoration: underline;*!*/
+  /*background-color:white;*/
+  /*!*font-family:  'Sacramento', cursive;*!*/
+  /*transition: all .3s ease;*/
+  /*background: rgba(255, 255, 255, 0.7);*/
+  /*border-radius: 5px;*/
+  /*overflow: hidden;*/
+  /*height: auto;*/
+  /*align-items: center;*/
 
 }
 
@@ -47,7 +46,7 @@ img:hover{
 
 .recipe-card {
   max-width: 300px;
-  margin: 5px;
+   margin: 5px;
   color: black;
   text-align: center;
   /*text-decoration: underline;*/

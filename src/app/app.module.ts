@@ -10,7 +10,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {
   MatButtonModule, MatCardModule, MatFormField, MatFormFieldModule, MatGridListModule, MatIconModule, MatInputModule,
   MatOptionModule, MatTabsModule,
-  MatToolbarModule, MatSnackBarModule, MatDividerModule, MatListModule, MatTooltipModule
+  MatToolbarModule, MatSnackBarModule, MatDividerModule, MatListModule, MatTooltipModule, MatDialogModule
 } from '@angular/material';
 import {CoreModule} from './core/core.module';
 import {RouterModule, Routes} from '@angular/router';
@@ -22,6 +22,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { DetailsComponent } from './details/details.component';
 import { FilterPipe } from './recipes/filter.pipe';
+import { HelpDialogComponent } from './help-dialog/help-dialog.component';
 
 
 const appRoutes: Routes = [
@@ -42,7 +43,8 @@ const appRoutes: Routes = [
     RecipesComponent,
     FormComponent,
     DetailsComponent,
-    FilterPipe
+    FilterPipe,
+    HelpDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +68,8 @@ const appRoutes: Routes = [
     MatSnackBarModule,
     MatDividerModule,
     MatListModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
