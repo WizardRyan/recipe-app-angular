@@ -157,3 +157,8 @@ p{
 .icons-container{
   justify-self: flex-end;
 }
+
+.undo-button {
+  color: white;
+  font-size: 55px;
+}
