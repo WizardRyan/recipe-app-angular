@@ -53,7 +53,7 @@ img:hover{
   /*text-decoration: underline;*/
   background-color:white;
   /*font-family:  'Sacramento', cursive;*/
-  transition: all .3s ease;
+  transition: transform .3s ease;
   background: rgba(255, 255, 255, 0.7);
   border-radius: 5px;
   overflow: hidden;
