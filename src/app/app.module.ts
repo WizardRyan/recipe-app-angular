@@ -72,6 +72,7 @@ const appRoutes: Routes = [
     MatDialogModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [HelpDialogComponent]
 })
 export class AppModule { }
