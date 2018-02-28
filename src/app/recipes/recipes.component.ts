@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {MatGridList, MatSnackBar} from '@angular/material';
 import {AuthService} from '../services/auth.service';
 import {RecipeService} from '../services/recipe.service';
@@ -34,26 +34,30 @@ import {trigger, state, style, transition, animate, keyframes, stagger, query} f
   //   ])
   // ]
 })
-export class RecipesComponent implements OnInit {
+export class RecipesComponent implements OnInit, OnDestroy {
 
   // needs to be converted from 1d to 2d array, don't strongly type
   recipeObjects;
   filterBy: string;
   deletedRecipes: Recipe[] = [];
   showDiv = true;
+  recipeSub;
 
   constructor(public recipeService: RecipeService, public auth: AuthService, public snackBar: MatSnackBar) {
 
   }
 
   ngOnInit() {
-    this.recipeService.recipes.subscribe(data => {
+    this.recipeSub = this.recipeService.recipes.subscribe(data => {
       // only add if recipe has a name
       const temp = data.filter(val => val.recipeName);
       this.recipeObjects = _.chunk(temp, 3);
 
     });
-    this.recipeService.forceUpdate();
+  }
+
+  ngOnDestroy() {
+    this.recipeSub.unsubscribe();
   }
 
   deleteRecipe(id) {

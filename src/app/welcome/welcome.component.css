@@ -57,17 +57,18 @@ mat-card-actions{
 }
 
 @media(max-width: 655px){
-  mat-card{
-    width: 95%;
-    padding: 24px 5%;
-  }
+  /*mat-card{*/
+    /*width: 95%;*/
+    /*padding: 24px 5%;*/
+  /*}*/
 
   .user-display-card{
     width: 95%;
-    padding: 24px 5%;
+    padding: 24px 3%;
   }
 
   .authentication-card{
-    width: 100%;
+    width: 95%;
+    padding: 24px 3%;
   }
 }
