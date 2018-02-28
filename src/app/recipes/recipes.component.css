@@ -3,7 +3,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 20px;
+  margin: 20px;
 }
 
 .main-wrapper{
@@ -27,10 +27,8 @@ img{
   margin: 5px;
   background-color:white;
   /*transition: all .3s ease;*/
-  /*background: rgba(255, 255, 255, 0.7);*/
   overflow: hidden;
   height: auto;
-  /*align-items: center;*/
 }
 
 img:hover{
@@ -39,7 +37,7 @@ img:hover{
 
 .recipe-card {
   width: 300px;
-  margin: 5px;
+  margin: 20px;
   color: black;
   text-align: center;
   background-color:white;
@@ -56,7 +54,6 @@ img:hover{
   -ms-transform: scale(1.12);
   -o-transform: scale(1.12);
   transform: scale(1.12);
-
   box-shadow: 0 6px 2px -4px rgba(0, 0, 0, .2);
 }
 
@@ -70,11 +67,11 @@ img:hover{
  min-height: 350px;
 }
 
-mat-card-title{
+/*mat-card-title{
   display: flex;
   justify-content: space-between;
   width: 100%;
-}
+}*/
 
 .undo-button{
   margin-top: 20px;
@@ -89,8 +86,6 @@ mat-card-title{
 
 mat-card-footer{
   margin-top: 3px;
-  /*margin-right: 5px;
-  margin-left: 5px;*/
   text-align: center;
 
 
@@ -122,15 +117,11 @@ mat-card-footer{
   }
 
   .recipe-card {
-    height: 6000px;
     min-height: 300px;
-    max-height: 300px;
-
   }
 
   @media (max-width: 600px) {
     .recipe-card {
-      height: 60px;
     }
 
 
