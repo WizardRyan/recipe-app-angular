@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../services/auth.service';
-import {MatSnackBar} from '@angular/material';
+import {MatDialog, MatSnackBar} from '@angular/material';
 import {FormControl, Validators} from '@angular/forms';
 import * as firebase from 'firebase/app';
+import {HelpDialogComponent} from '../help-dialog/help-dialog.component';
 
 @Component({
   selector: 'app-welcome',
@@ -17,7 +18,7 @@ export class WelcomeComponent implements OnInit {
   iPasswordCtrl: FormControl = new FormControl ('', [Validators.required]);
 
 
-  constructor(public auth: AuthService, public snackBar: MatSnackBar) {
+  constructor(public auth: AuthService, public snackBar: MatSnackBar, public dialog: MatDialog) {
   }
 
   ngOnInit() {
@@ -45,6 +46,10 @@ export class WelcomeComponent implements OnInit {
       .catch(message => {
         this.snackBar.open(message.message, '', {duration: 2000});
       });
+  }
+
+  openHelpDialog(){
+    this.dialog.open(HelpDialogComponent, {height: '500px'});
   }
 
 }

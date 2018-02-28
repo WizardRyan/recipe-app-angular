@@ -23,7 +23,7 @@
 
 }
 
-.example-container > * {
+mat-form-field{
   width: 50%;
 }
 
@@ -59,6 +59,10 @@ mat-card{
   mat-card{
     width: 100%;
     padding: 24px 0;
+  }
+
+  mat-form-field{
+    width: 90%;
   }
 }
 
