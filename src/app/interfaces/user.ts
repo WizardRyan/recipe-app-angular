@@ -1,4 +1,5 @@
 import {Recipe} from './recipe';
+import {RecipeMeta} from './recipeMeta';
 
 export interface User {
   uid: string;
@@ -7,4 +8,5 @@ export interface User {
   displayName?: string;
   numOfRecipesPosted?: number;
   recipesFlagged?: string[];
+  recipesPosted?: RecipeMeta[];
 }

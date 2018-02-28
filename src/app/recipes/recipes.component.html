@@ -12,7 +12,7 @@
   <div class="recipe-card-container">
     <!--<div>-->
       <!--<div *ngFor="let recipeObject of (recipeObjects | filter:filterBy)">-->
-        <mat-card *ngFor="let recipe of recipeObjects" class="recipe-card">
+        <mat-card *ngFor="let recipe of recipeObjects | filter:filterBy" class="recipe-card">
           <mat-card-header>
             <mat-card-title>
             <span class="card-title-click" [routerLink]="['/details', recipe.id]">

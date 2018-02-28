@@ -7,16 +7,16 @@ import * as _ from 'lodash';
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(recipesRaw: Recipe[], filterBy: string): Recipe[][] {
+  transform(recipesRaw: Recipe[], filterBy: string): Recipe[] {
     const recipes = _.flatten(recipesRaw);
     filterBy = filterBy ? filterBy.toLocaleLowerCase() : null;
 
-    return filterBy ? _.chunk(recipes.filter((recipe: Recipe) => {
+    return filterBy ? recipes.filter((recipe: Recipe) => {
         return recipe.recipeName.toLocaleLowerCase().indexOf(filterBy) !== -1;
-      }), 3)
+      })
 
       :
-      _.chunk(recipes, 3);
+      recipes;
   }
 
 }
