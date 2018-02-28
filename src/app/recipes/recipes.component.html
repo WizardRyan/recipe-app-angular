@@ -5,38 +5,43 @@
     </mat-form-field>
   </mat-card>
 
-  <mat-icon *ngIf="deletedRecipes.length > 0" class = "undo-button" (click)="undoDelete()" matTooltip="Undo Delete">undo</mat-icon>
+  <mat-icon *ngIf="deletedRecipes.length > 0" class="undo-button" (click)="undoDelete()" matTooltip="Undo Delete">undo
+  </mat-icon>
 
   <!-- [@flyInOut]="showDiv" - was in recipe-card-container div-->
-  <div class="recipe-card-container" >
-    <div fxLayout="column" fxLayoutGap="30px">
-      <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="30px" class="card-row" *ngFor="let recipeObject of (recipeObjects | filter:filterBy)">
-        <mat-card *ngFor="let recipe of recipeObject" class="recipe-card">
-          <mat-card-title>
+  <div class="recipe-card-container">
+    <!--<div>-->
+      <!--<div *ngFor="let recipeObject of (recipeObjects | filter:filterBy)">-->
+        <mat-card *ngFor="let recipe of recipeObjects" class="recipe-card">
+          <mat-card-header>
+            <mat-card-title>
             <span class="card-title-click" [routerLink]="['/details', recipe.id]">
               {{recipe.recipeName}}
             </span>
 
-            <span class="icons-container">
-              <span class="icon-container" (click)="increaseFlag(recipe.id)">
+              <span class="icons-container">
+              <span *ngIf="auth.user | async as user" class="icon-container" (click)="increaseFlag(recipe.id)">
                 <mat-icon matTooltip="Flag as inappropriate">flag</mat-icon>
               </span>
               <ng-container *ngIf="auth.user | async as user">
-                <mat-icon *ngIf="user.email === recipe.recipePoster || recipe.flagRating > 1"
+                <mat-icon *ngIf="user.email === recipe.recipePoster || (recipe.flagRating > 1 && recipe.flagRating)"
                           class="delete-button"
                           (click)="deleteRecipe(recipe.id, $event)" matTooltip="Delete this recipe">delete</mat-icon>
               </ng-container>
             </span>
+            </mat-card-title>
+          </mat-card-header>
 
-          </mat-card-title>
-          <img mat-card-image [src]="recipe.photoURL" [routerLink]="['/details', recipe.id]">
+
+            <img mat-card-image [src]="recipe.photoURL" [routerLink]="['/details', recipe.id]">
+
           <mat-card-footer>
             <p [routerLink]="['/details', recipe.id]">{{recipe.description}}</p>
           </mat-card-footer>
 
         </mat-card>
 
-      </div>
-    </div>
+      <!--</div>-->
+    <!--</div>-->
   </div>
 </div>

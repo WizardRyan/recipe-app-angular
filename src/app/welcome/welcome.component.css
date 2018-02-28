@@ -44,3 +44,25 @@ mat-tab-body{
 .user-display-card{
   padding: 50px;
 }
+mat-tab-group{
+  height: 88%;
+}
+
+mat-card-actions{
+  justify-self: flex-end;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+@media(max-width: 655px){
+  mat-card{
+    width: 100%;
+    padding: 24px 0;
+  }
+
+  .authentication-card{
+    width: 100%;
+  }
+}

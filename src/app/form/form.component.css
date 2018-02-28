@@ -58,6 +58,7 @@ mat-card{
 @media(max-width: 600px){
   mat-card{
     width: 100%;
+    padding: 24px 0;
   }
 }
 

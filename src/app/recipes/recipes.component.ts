@@ -50,7 +50,7 @@ export class RecipesComponent implements OnInit {
     this.recipeService.recipes.subscribe(data => {
       // only add if recipe has a name
       const temp = data.filter(val => val.recipeName);
-      this.recipeObjects = _.chunk(temp, 3);
+      this.recipeObjects = temp; //_.chunk(temp, 3);
 
     });
     this.recipeService.forceUpdate();
@@ -72,7 +72,24 @@ export class RecipesComponent implements OnInit {
   }
 
   increaseFlag(id, e) {
-    this.recipeService.increaseRecipeFlag(id);
-      this.snackBar.open('The recipe has been flagged, Thanks for your feedback', '', {duration: 2000});
+    let userFlags;
+    const sub = this.auth.user.subscribe(user => {
+      userFlags = user.recipesFlagged ? user.recipesFlagged : [];
+      let idFound = false;
+      for (let i = 0; i < userFlags.length; i++) {
+        if (userFlags[i] === id) {
+          idFound = true;
+        }
+      }
+      if (!idFound) {
+        this.recipeService.increaseRecipeFlag(id);
+        this.snackBar.open('The recipe has been flagged, Thanks for your feedback', '', {duration: 2000});
+      }
+      else {
+        this.snackBar.open('You\'ve already flagged this recipe!', '', {duration: 2000});
+      }
+      sub.unsubscribe();
+    });
+
   }
 }
