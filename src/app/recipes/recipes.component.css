@@ -2,7 +2,7 @@
   width: 90%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content:center;
   margin: 20px;
 }
 
@@ -67,11 +67,11 @@ img:hover{
  min-height: 350px;
 }
 
-/*mat-card-title{
+mat-card-title{
   display: flex;
   justify-content: space-between;
   width: 100%;
-}*/
+}
 
 .undo-button{
   margin-top: 20px;
@@ -80,9 +80,9 @@ img:hover{
   font-size: 55px;
 }
 
-.card-title-click{
+/*.card-title-click{
   transition: all .3s ease;
-}
+}*/
 
 mat-card-footer{
   margin-top: 3px;
@@ -130,11 +130,6 @@ mat-card-footer{
       overflow: hidden;
       text-overflow: ellipsis;
     }
-
-    .icons-container {
-      justify-self: flex-end;
-    }
-
 
   }
 }
