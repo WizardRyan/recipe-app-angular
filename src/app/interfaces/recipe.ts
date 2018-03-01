@@ -11,4 +11,5 @@ export interface Recipe {
   id?: string;
   flagRating?: number;
   showFlag?: boolean;
+  datePosted?: Date;
 }

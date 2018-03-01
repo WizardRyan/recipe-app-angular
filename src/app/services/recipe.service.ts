@@ -32,7 +32,7 @@ export class RecipeService {
 
   addComment(recipeId, poster, posterEmail, content) {
     const commentRef = this.fireStore.collection('recipes').doc(`${recipeId}`).collection('comments');
-    commentRef.add({poster, posterEmail, content}).then(docRef => {
+    commentRef.add({poster, posterEmail, content, datePosted: new Date()}).then(docRef => {
       commentRef.doc(`${docRef.id}`).update({id: docRef.id});
     });
   }

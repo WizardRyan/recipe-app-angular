@@ -6,7 +6,14 @@
     </div>
 
     <div class = "subtitle">
-      <h3 class="mat-subheading-2">Recipe by {{recipeData.recipeCreator}}, posted from {{recipeData.recipePoster}}</h3>
+      <mat-list>
+        <mat-list-item>
+          <h3 class="mat-subheading-2">Recipe made by {{recipeData.recipeCreator}}</h3>
+        </mat-list-item>
+        <mat-list-item>
+          <h4 class="mat-subheading-1"><em>posted from {{recipeData.recipePoster}} at {{recipeData.datePosted | dateFormatter}}</em></h4>
+        </mat-list-item>
+      </mat-list>
     </div>
     <mat-divider></mat-divider>
 
@@ -53,6 +60,9 @@
   <mat-card-title>
     {{comment.poster}}
   </mat-card-title>
+  <mat-card-subtitle>
+    Posted {{comment.datePosted | dateFormatter : true}}
+  </mat-card-subtitle>
   <mat-card-content>
     {{comment.content}}
   </mat-card-content>

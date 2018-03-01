@@ -49,7 +49,8 @@ export class FormComponent implements OnInit {
         ingredients,
         photoURL: this.photoURLCtrl.value,
         recipePoster: poster,
-        description: this.detailsCtrl.value
+        description: this.detailsCtrl.value,
+        datePosted: new Date()
       };
 
       this.authService.addRecipe(recipe, true).then(() => {

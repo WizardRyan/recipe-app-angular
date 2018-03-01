@@ -3,4 +3,5 @@ export interface RecipeComment {
   content: string;
   posterEmail: string;
   id?: string;
+  datePosted?: Date;
 }

@@ -5,10 +5,10 @@ import {Pipe, PipeTransform} from '@angular/core';
 })
 export class DateFormatterPipe implements PipeTransform {
 
-  transform(date: Date): string {
+  transform(date: Date, time?: boolean): string {
 
     let dd: any = date.getDate();
-    let mm: any = date.getMonth() + 1; // January is 0!
+    let mm: any = date.getMonth() + 1;
     const yyyy: any = date.getFullYear();
 
     if (dd < 10) {
@@ -18,7 +18,8 @@ export class DateFormatterPipe implements PipeTransform {
     if (mm < 10) {
       mm = '0' + mm;
     }
-    return mm + '/' + dd + '/' + yyyy;
+
+    return mm + '/' + dd + '/' + yyyy + (time ? ' ' + date.toLocaleTimeString() : '');
   }
 
 }
