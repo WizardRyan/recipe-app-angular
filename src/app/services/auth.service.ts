@@ -6,6 +6,7 @@ import {AngularFirestore, AngularFirestoreDocument} from 'angularfire2/firestore
 import * as firebase from 'firebase/app';
 import {Recipe} from '../interfaces/recipe';
 import {reject} from 'q';
+import {RecipeMeta} from '../interfaces/recipeMeta';
 
 @Injectable()
 export class AuthService {
@@ -58,7 +59,7 @@ export class AuthService {
   private updateUserData(user, userName?) {
 
     const userRef: AngularFirestoreDocument<any> = this.fireStore.doc(`users/${user.uid}`);
-    userRef.valueChanges().subscribe(dat => {
+    const sub = userRef.valueChanges().subscribe(dat => {
       let data: User = {
         uid: user.uid,
         email: user.email,
@@ -66,9 +67,11 @@ export class AuthService {
         photoURL: user.photoURL,
         // heh, nuthin personell
         numOfRecipesPosted: dat ? dat.numOfRecipesPosted ? dat.numOfRecipesPosted : 0 : 0,
-        recipesFlagged: dat ? dat.recipesFlagged ? dat.recipesFlagged : [] : []
+        recipesFlagged: dat ? dat.recipesFlagged ? dat.recipesFlagged : [] : [],
+        recipesPosted: dat ? dat.recipesPosted ? dat.recipesPosted : [] : []
       };
-      return userRef.set(data);
+      userRef.set(data);
+      sub.unsubscribe();
     });
   }
 
@@ -77,14 +80,7 @@ export class AuthService {
       const userRef: AngularFirestoreDocument<any> = this.fireStore.doc(`users/${dat.uid}`);
       let count = dat.numOfRecipesPosted;
       count = count ? count + 1 : 1;
-      const data = {
-        uid: dat.uid,
-        email: dat.email,
-        displayName: dat.displayName,
-        photoURL: dat.photoURL,
-        numOfRecipesPosted: count
-      };
-      userRef.set(data);
+      userRef.update({numOfRecipesPosted: count});
       sub.unsubscribe();
     });
   }
@@ -100,8 +96,27 @@ export class AuthService {
           if (incrCounter) {
             this.incrementUserRecipeCount();
           }
+          this.updateUserRecipes(docRef.id, recipe.recipeName);
         }).then(() => resolve(true)).catch(() => rej(false));
       }
+    });
+  }
+
+  updateUserRecipes(id: string, name: string) {
+    const sub = this.user.subscribe(user => {
+      const userRef = this.fireStore.collection('users').doc(`${user.uid}`);
+      const recipeData: RecipeMeta = {
+        recipeID: id,
+        recipeName: name,
+        postDate: new Date()
+      };
+      let recipesPosted: RecipeMeta[] = [];
+      if (user.recipesPosted) {
+        recipesPosted = user.recipesPosted;
+      }
+      recipesPosted.push(recipeData);
+      userRef.update({recipesPosted});
+      sub.unsubscribe();
     });
   }
 

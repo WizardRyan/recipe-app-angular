@@ -23,6 +23,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { DetailsComponent } from './details/details.component';
 import { FilterPipe } from './recipes/filter.pipe';
 import { HelpDialogComponent } from './help-dialog/help-dialog.component';
+import { UserRecipesComponent } from './user-recipes/user-recipes.component';
+import { DateFormatterPipe } from './shared/date-formatter.pipe';
 
 
 const appRoutes: Routes = [
@@ -44,7 +46,9 @@ const appRoutes: Routes = [
     FormComponent,
     DetailsComponent,
     FilterPipe,
-    HelpDialogComponent
+    HelpDialogComponent,
+    UserRecipesComponent,
+    DateFormatterPipe,
   ],
   imports: [
     BrowserModule,
@@ -73,6 +77,6 @@ const appRoutes: Routes = [
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [HelpDialogComponent]
+  entryComponents: [HelpDialogComponent, UserRecipesComponent]
 })
 export class AppModule { }

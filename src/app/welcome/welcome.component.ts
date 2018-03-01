@@ -4,6 +4,7 @@ import {MatDialog, MatSnackBar} from '@angular/material';
 import {FormControl, Validators} from '@angular/forms';
 import * as firebase from 'firebase/app';
 import {HelpDialogComponent} from '../help-dialog/help-dialog.component';
+import {UserRecipesComponent} from '../user-recipes/user-recipes.component';
 
 @Component({
   selector: 'app-welcome',
@@ -52,4 +53,7 @@ export class WelcomeComponent implements OnInit {
     this.dialog.open(HelpDialogComponent, {height: '500px'});
   }
 
+  openUserRecipesDialog(){
+    this.dialog.open(UserRecipesComponent);
+  }
 }
