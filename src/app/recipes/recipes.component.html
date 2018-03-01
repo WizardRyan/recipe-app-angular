@@ -8,11 +8,10 @@
   <mat-icon *ngIf="deletedRecipes.length > 0" class="undo-button" (click)="undoDelete()" matTooltip="Undo Delete">undo
   </mat-icon>
 
-  <!-- [@flyInOut]="showDiv" - was in recipe-card-container div-->
   <div class="recipe-card-container">
     <!--<div>-->
       <!--<div *ngFor="let recipeObject of (recipeObjects | filter:filterBy)">-->
-        <mat-card *ngFor="let recipe of recipeObjects | filter:filterBy" class="recipe-card">
+        <mat-card [@flyInOut]="showDiv" *ngFor="let recipe of recipeObjects | filter:filterBy" class="recipe-card">
 
             <mat-card-title>
             <span class="card-title-click" [routerLink]="['/details', recipe.id]">
