@@ -8,6 +8,7 @@
   background-image: url("../../assets/images/food3.png");
   background-size: cover;
   overflow: auto;
+  border-radius: 5px;
 }
 .image-ingredients-container {
   display: flex;
@@ -63,7 +64,7 @@ img{
 
 .image-container img{
   width: 100%;
-  border-radius: 6px;
+  /*border-radius: 6px;*/
 }
 
 .ingredients-divider{
@@ -81,8 +82,13 @@ mat-card{
 @media(max-width: 730px){
   .image-list-container{
     width: 100%;
+    padding-left: 15px;
   }
   .directions{
     width: 100%;
   }
+  .details-card-container{
+    border-radius: 5px;
+  }
+
 }
