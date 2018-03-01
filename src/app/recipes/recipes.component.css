@@ -106,6 +106,14 @@ mat-card-footer{
   background-color: yellow;
   cursor: pointer;
 }
+.delete-button {
+  border-radius: 5px;
+}
+
+.delete-button:hover{
+  background-color: yellow;
+  cursor: pointer;
+}
 
 .card-image {
   margin-top: 10px;
