@@ -6,33 +6,24 @@ import {Observable} from 'rxjs/Observable';
 import {Recipe} from '../interfaces/recipe';
 import * as _ from 'lodash';
 import {MatSnackBarModule} from '@angular/material';
-import {trigger, state, style, transition, animate, keyframes, stagger, query} from '@angular/animations';
+import {animate, keyframes, query, stagger, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-recipes',
   templateUrl: './recipes.component.html',
   styleUrls: ['./recipes.component.css'],
   animations: [
-    trigger('flyInOut', [
-
+    trigger('listAnimation', [
       transition('* => *', [
-
-        // query(':enter', style({opacity: 0}), {optional: true}),
-        //
-        // query(':enter', stagger('300ms', [
-        //   animate('1s ease-in', keyframes([
-        //     style({opacity: 0, transform: 'translateY(-75px)', offset: 0}),
-        //     style({opacity: .5, transform: 'translateY(35px)', offset: 0.3}),
-        //     style({opacity: 1, transform: 'translateY(0)', offset: 1})
-        //   ]))
-        //
-        //
-        // ]))
-
-        animate('1000ms ease-in')
-
+        query(':enter', [
+          style({opacity: '0', transform: 'translateY(100px)'}),
+          stagger(100, animate('.4s ease-in-out', keyframes([
+            style({opacity: '0', transform: 'translateY(-100px)', offset: 0}),
+            style({opacity: '1', transform: 'translateY(50px)', offset: .3}),
+            style({opacity: '1', transform: 'translateY(0)', offset: 1})
+          ])))
+        ], {optional: true})
       ])
-
     ])
   ]
 })
