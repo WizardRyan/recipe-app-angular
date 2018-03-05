@@ -4,8 +4,10 @@ mat-toolbar{
 }
 
 span {
-  margin: 10px;
+  margin: 5px;
+  padding: 5px;
 }
+
 
 span:hover{
   cursor:pointer;
@@ -25,4 +27,9 @@ input{
 
 .end *{
   margin: 4px;
+}
+
+.main-wrapper{
+  height: 100%;
+  width: 100%;
 }

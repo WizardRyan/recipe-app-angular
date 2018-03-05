@@ -29,10 +29,10 @@ import { DateFormatterPipe } from './shared/date-formatter.pipe';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'welcome', pathMatch: 'full'},
-  { path: 'welcome', component: WelcomeComponent },
-  { path: 'recipes', component: RecipesComponent},
-  {path: 'add', component: FormComponent},
-  {path: 'details/:id', component: DetailsComponent},
+  { path: 'welcome', component: WelcomeComponent, data: {state: 'welcome'} },
+  { path: 'recipes', component: RecipesComponent, data: {state: 'recipes'}},
+  {path: 'add', component: FormComponent, data: {state: 'add'}},
+  {path: 'details/:id', component: DetailsComponent, data: {state: 'details'}},
   {path: '**', component: WelcomeComponent},
 
 ];

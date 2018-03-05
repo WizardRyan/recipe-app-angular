@@ -11,7 +11,7 @@
 
 </mat-toolbar>
 
-<!-- <span class="main-wrapper" [@routerTransition]="getState(o)"> -->
-  <router-outlet></router-outlet>
-<!-- </span> -->
+ <div class="main-wrapper" [@routerTransition]="getState(o)">
+  <router-outlet #o="outlet" ></router-outlet>
+ </div>
 

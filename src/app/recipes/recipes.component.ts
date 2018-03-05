@@ -17,7 +17,7 @@ import {animate, keyframes, query, stagger, style, transition, trigger} from '@a
       transition('* => *', [
         query(':enter', [
           style({opacity: '0', transform: 'translateY(100px)'}),
-          stagger(100, animate('.4s ease-in-out', keyframes([
+          stagger(100, animate('.6s ease-in-out', keyframes([
             style({opacity: '0', transform: 'translateY(-100px)', offset: 0}),
             style({opacity: '1', transform: 'translateY(50px)', offset: .3}),
             style({opacity: '1', transform: 'translateY(0)', offset: 1})

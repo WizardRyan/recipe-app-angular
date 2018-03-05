@@ -63,7 +63,7 @@ export class AuthService {
       let data: User = {
         uid: user.uid,
         email: user.email,
-        displayName: userName ? userName : dat.displayName,
+        displayName: userName ? userName : dat ? dat.displayName : user.displayName ? user.displayName : 'Anonymous',
         photoURL: user.photoURL,
         // heh, nuthin personell
         numOfRecipesPosted: dat ? dat.numOfRecipesPosted ? dat.numOfRecipesPosted : 0 : 0,

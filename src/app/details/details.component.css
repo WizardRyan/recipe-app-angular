@@ -28,7 +28,7 @@ img{
   align-items: center;
   justify-content: center;
   background-color: white;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 1);
   border-radius: 5px;
   width: 72.5%;
   max-width: 960px;
@@ -39,7 +39,7 @@ img{
   background-color: white;
   display: flex;
   justify-content:center;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 1);
   border-radius: 5px;
   padding: 5px 0 5px 0;
   width: 72.5%;
