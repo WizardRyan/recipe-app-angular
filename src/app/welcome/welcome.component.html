@@ -19,7 +19,7 @@
           </mat-form-field>
 
           <mat-form-field>
-            <input ng-hide="showpassword" type="password" [(ngModel)]="uPassword" [formControl]="uPasswordCtrl" matInput placeholder="Password" >
+            <input ng-hide="showpassword" type="password" [(ngModel)]="uPassword" [formControl]="uPasswordCtrl" matInput placeholder="Password" (keyup.enter)="signUp()" >
             <mat-error *ngIf="uPasswordCtrl.hasError('required')">
               Please enter a password
             </mat-error>
@@ -39,7 +39,7 @@
           </mat-form-field>
 
           <mat-form-field>
-            <input ng-hide="showpassword" type="password" [(ngModel)]="iPassword" [formControl]="iPasswordCtrl" matInput placeholder="Password" >
+            <input ng-hide="showpassword" type="password" [(ngModel)]="iPassword" [formControl]="iPasswordCtrl" matInput placeholder="Password" (keyup.enter)="signIn()" >
             <mat-error *ngIf="iPasswordCtrl.hasError('required')">
               Please enter your password
             </mat-error>
@@ -49,7 +49,7 @@
       </mat-tab>
     </mat-tab-group>
     <mat-card-actions>
-      <button class="google-btn" color="warn" mat-raised-button (click)="auth.googleLogin()">Sign in with Google</button>
+      <button class="google-btn" color="warn" mat-raised-button (click)="auth.googleLogin()">Sign in/up with Google</button>
       <button mat-raised-button color="primary" matTooltip="help" (click)="openHelpDialog()"><mat-icon color="secondary">help</mat-icon></button>
     </mat-card-actions>
   </mat-card>
