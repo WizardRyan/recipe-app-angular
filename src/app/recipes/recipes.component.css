@@ -77,14 +77,13 @@ mat-card-title{
 
 .undo-button{
   margin-top: 20px;
-  padding: 10px;
-  color: white;
+}
+
+.undo-icon{
+  height: 90px;
   font-size: 55px;
 }
 
-/*.card-title-click{
-  transition: all .3s ease;
-}*/
 
 mat-card-footer{
   margin-top: 3px;
