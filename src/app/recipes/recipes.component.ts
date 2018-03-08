@@ -29,10 +29,9 @@ import {animate, keyframes, query, stagger, style, transition, trigger} from '@a
 })
 export class RecipesComponent implements OnInit, OnDestroy {
 
-  // needs to be converted from 1d to 2d array, don't strongly type
   recipeObjects;
   filterBy: string;
-  deletedRecipes: Recipe[] = [];
+  deletedRecipes = [];
   showDiv = true;
   recipeSub;
 
@@ -45,7 +44,7 @@ export class RecipesComponent implements OnInit, OnDestroy {
     this.recipeSub = this.recipeService.recipes.subscribe(data => {
       // only add if recipe has a name
       const temp = data.filter(val => val.recipeName);
-      this.recipeObjects = temp; //_.chunk(temp, 3);
+      this.recipeObjects = temp;
 
     });
   }
