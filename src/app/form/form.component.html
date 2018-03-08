@@ -24,7 +24,7 @@
         </mat-error>
       </mat-form-field>
 
-      <div fxLayout="row">
+      <div class="ingredient-input">
         <mat-form-field>
           <input [formControl]="ingredientNameCtrl" matInput placeholder="Ingredient" (keyup.enter)="addItem()">
 
@@ -34,12 +34,14 @@
           </mat-error>
         </mat-form-field>
         <mat-icon color="primary" (click)="addItem()">add_circle</mat-icon>
+
       </div>
 
 
 
+
       <div class="inputButton">
-        <mat-list fxLayoutGap="10px">
+        <mat-list>
           <mat-list-item *ngFor="let ingredient of ingredientNames; let i = index">
             <div class="list-item-container">
               {{ingredient}}
@@ -67,9 +69,9 @@
         </mat-error>
       </mat-form-field>
 
+      <button mat-raised-button color="primary" (click)="pushRecipe()">Submit</button>
     </div>
 
-    <button mat-raised-button color="primary" (click)="pushRecipe()">Submit</button>
   </mat-card>
 </div>
 
