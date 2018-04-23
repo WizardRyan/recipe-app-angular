@@ -10,4 +10,4 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Help
 
-for help on how to use the app, click the "?" button while your at the site
+for help on how to use the app, click the "?" button while you're at the site
